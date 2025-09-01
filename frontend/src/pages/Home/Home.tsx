@@ -180,19 +180,21 @@ export const Home = (): JSX.Element => {
    ];
 
    return (
-      <div className="bg-gradient-to-br from-gray-50 to-white min-h-screen">
+      <div className="bg-gradient-to-br from-gray-50
+       to-white min-h-screen">
          {/* Header */}
          <Header />
 
          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
             {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 
+            gap-4 sm:gap-6 lg:gap-8">
                {/* Left Column - User Profile & Quick Actions */}
                <div className="lg:col-span-3 order-2 lg:order-1">
                   {/* Enhanced User Profile Card */}
                   <Card className="mb-6 overflow-hidden">
                      <div className="h-20 bg-gradient-to-r from-[#22ae4b] to-[#1c9a40] relative">
-                        <div className="absolute -bottom-8 left-6">
+                        <div className={`absolute -bottom-8 ${isRTL?"right-6":"left-6"}`}>
                            <Link to="/profile">
                               <Avatar className="w-16 h-16 border-4 border-white shadow-lg hover:scale-105 transition-transform">
                                  <img
