@@ -48,6 +48,7 @@ export const registerUser = asyncHandler(async (req, res, next) => {
                   httpOnly: true,
                   secure: NODE_ENV === "production",
                   sameSite: "strict",
+                  expires: new Date(Date.now() + 1000 * 60 * 15), // 15 minutes
             })
             .status(200)
             .json(

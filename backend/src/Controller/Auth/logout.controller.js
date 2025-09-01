@@ -25,8 +25,8 @@ export const logoutUser = asyncHandler(async (req, res) => {
 
     return res
         .status(200)
-        //make accessToken null
-        .cookie("accessToken", null, {
+        //make access_token null
+        .cookie("access_token", null, {
             ...cookieOptions,
             expires: new Date(Date.now())
         })

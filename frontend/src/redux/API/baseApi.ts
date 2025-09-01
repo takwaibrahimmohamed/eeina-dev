@@ -3,8 +3,8 @@ import type { BaseQueryFn, FetchArgs } from "@reduxjs/toolkit/query";
 
 // base fetch
 const baseQuery = fetchBaseQuery({
-    // baseUrl: "/api/v1",
-    baseUrl: "https://api.eeina.com/api/v1",
+    baseUrl: "/api/v1",
+    // baseUrl: "https://api.eeina.com/api/v1",
     credentials: "include",
 });
 
