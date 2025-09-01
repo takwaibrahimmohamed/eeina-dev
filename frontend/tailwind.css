@@ -1,0 +1,198 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #22ae4b;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #22ae4b;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .slider::-webkit-slider-track {
+    background: #e5e7eb;
+    border-radius: 5px;
+  }
+
+  .slider::-moz-range-track {
+    background: #e5e7eb;
+    border-radius: 5px;
+  }
+}
+
+:root {
+  --blue-gray200: rgba(226, 232, 240, 1);
+  --bold-11px-CAP-font-family: "Poppins", Helvetica;
+  --bold-11px-CAP-font-size: 13px;
+  --bold-11px-CAP-font-style: normal;
+  --bold-11px-CAP-font-weight: 600;
+  --bold-11px-CAP-letter-spacing: 1px;
+  --bold-11px-CAP-line-height: 18px;
+  --cool-gray50: rgba(249, 250, 251, 1);
+  --gray-400: rgba(152, 162, 179, 1);
+  --gray-500: rgba(102, 112, 133, 1);
+  --regular-13px-font-family: "Poppins", Helvetica;
+  --regular-13px-font-size: 14px;
+  --regular-13px-font-style: normal;
+  --regular-13px-font-weight: 400;
+  --regular-13px-letter-spacing: 0px;
+  --regular-13px-line-height: 22px;
+  --regular-16px-font-family: "Poppins", Helvetica;
+  --regular-16px-font-size: 16px;
+  --regular-16px-font-style: normal;
+  --regular-16px-font-weight: 400;
+  --regular-16px-letter-spacing: 0px;
+  --regular-16px-line-height: 26px;
+  --semi-bold-16px-font-family: "Poppins", Helvetica;
+  --semi-bold-16px-font-size: 16px;
+  --semi-bold-16px-font-style: normal;
+  --semi-bold-16px-font-weight: 500;
+  --semi-bold-16px-letter-spacing: 0px;
+  --semi-bold-16px-line-height: 24px;
+  --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --text-sm-normal-font-family: "Inter", Helvetica;
+  --text-sm-normal-font-size: 14px;
+  --text-sm-normal-font-style: normal;
+  --text-sm-normal-font-weight: 400;
+  --text-sm-normal-letter-spacing: 0px;
+  --text-sm-normal-line-height: 20px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RTL Support */
+.rtl {
+  direction: rtl;
+}
+
+.rtl .flex {
+  flex-direction: row-reverse;
+}
+
+.rtl .text-left {
+  text-align: right;
+}
+
+.rtl .text-right {
+  text-align: left;
+}
+
+.rtl .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.rtl .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* Arabic font support */
+.rtl body {
+  font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}

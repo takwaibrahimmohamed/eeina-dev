@@ -1,0 +1,9 @@
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "9000:5050"
+    env_file:
+      - .env
+    restart: always

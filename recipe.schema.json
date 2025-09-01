@@ -1,0 +1,54 @@
+{
+  "RecipeSchema": {
+    "title": { "en": "String", "ar": "String" },
+    "slug": "String",
+    "description": { "en": "String", "ar": "String" },
+    "ingredients": ["IngredientSchema"],
+    "nutrition": "NutritionSchema",
+    "instructions": [
+      {
+        "step": { "en": "String", "ar": "String" },
+        "image": { "url": "String", "key": "String" }
+      }
+    ],
+    "servings": "Number",
+    "time": "Number",
+    "cuisine": [{ "en": "String", "ar": "String" }],
+    "category": [{ "en": "String", "ar": "String" }],
+    "healthLabels": [{ "en": "String", "ar": "String" }],
+    "dietLabels": [{ "en": "String", "ar": "String" }],
+    "thumbnail": { "url": "String", "key": "String" },
+    "views": "Number",
+    "otherImages": [{ "url": "String", "key": "String" }],
+    "videoUrl": "String",
+    "metadata": "MetadataSchema",
+    "likedBy": ["ObjectId"],
+    "comments": ["ObjectId"],
+    "createdBy": "ObjectId"
+  },
+  "IngredientSchema": {
+    "details": "ObjectId",
+    "nameClean": { "en": "String", "ar": "String" },
+    "ingrText": { "en": "String", "ar": "String" },
+    "amount": "Number",
+    "unit": { "en": "String", "ar": "String" }
+  },
+  "MetadataSchema": {
+    "imported": "Boolean",
+    "site": "String",
+    "originalUrl": "String",
+    "importDate": "Date"
+  },
+  "NutritionSchema": {
+    "nutrients": ["NutritionComponentSchema"],
+    "glycemixIndex": "Number",
+    "glycemicLoad": "Number",
+    "nutritionBalanceScore": "Number"
+  },
+  "NutritionComponentSchema": {
+    "name": { "en": "String", "ar": "String" },
+    "amount": "Number",
+    "unit": { "en": "String", "ar": "String" },
+    "percentOfDailyNeeds": "Number"
+  }
+}
