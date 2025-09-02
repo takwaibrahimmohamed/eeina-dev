@@ -1,7 +1,6 @@
 import cors from "cors";
 // CORS configuration
 const allowedOrigins = [
-      "http://localhost:3000",
       "http://localhost:5173",
       "http://localhost:5174",
       "http://localhost:3001",
@@ -10,8 +9,8 @@ const allowedOrigins = [
       "https://app.eeina.com",
       "http://admin.eeina.com",
       "https://admin.eeina.com",
-      "https://dev.eeina.com/",
-      "http://dev.eeina.com/",
+      "https://dev.eeina.com",
+      "http://dev.eeina.com",
 ];
 
 const corsOptions = {

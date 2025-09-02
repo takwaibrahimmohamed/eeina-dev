@@ -29,7 +29,7 @@ export const loginUser = asyncHandler(async (req, res, next) => {
     await user.save();
 
     // Generate an access token using the instance method defined on the user model
-    const accessToken = user.generateAccessToken();
+    const access_token = user.generateAccessToken();
 
     const cookiesOption = {
         httpOnly: true,
@@ -41,7 +41,7 @@ export const loginUser = asyncHandler(async (req, res, next) => {
     // Return a successful response including the token and user details
     return res
         .status(200)
-        .cookie("accessToken", accessToken, {
+        .cookie("access_token", access_token, {
             ...cookiesOption,
         })
         .json(

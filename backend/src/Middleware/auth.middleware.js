@@ -5,9 +5,7 @@ import User from "../models/user.model.js";
 import { ACCESS_TOKEN_SECRET } from "../constant.js";
 
 const isAuthenticated = asyncHandler(async (req, res, next) => {
-      const { accessToken: token } = req.cookies;
-
-      console.log("token", token);
+      const { access_token: token } = req.cookies;
 
       if (!token) {
             return next(new apiErrorHandler(401, "Login first to access this resource"));
