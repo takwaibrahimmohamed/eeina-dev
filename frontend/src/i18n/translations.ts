@@ -28,6 +28,9 @@ export interface Translation {
           confirm: string;
           yes: string;
           no: string;
+            Follow: string;
+          Following: string;
+          Crop: string;
      };
 
      // Home page
@@ -46,6 +49,7 @@ export interface Translation {
           trending_now: string;
           premium_recipes: string;
           upgrade_now: string;
+          Paste_recipe_URL:string;
      };
 
      // Recipe details
@@ -70,6 +74,7 @@ export interface Translation {
           leave_comment: string;
           mark_complete: string;
           view_all_ingredients: string;
+          View_Recipe: string;
      };
 
      // Profile
@@ -87,6 +92,23 @@ export interface Translation {
           no_activity: string;
           no_recipes: string;
           create_first_recipe: string;
+          view_profile:string;
+          food_enthusiast:string;
+          premium:string;
+          member_since:string;
+          recipes:string;
+          likes:string;
+          show_less:string;
+          showing_posts:string;
+          add_comment:string;
+          post:string;
+          import_recipe:string;
+          enter_recipe_url:string;
+          account_type:string;
+          verification:string;
+          verified:string;
+          profile_completion:string;
+          show_more_creators:string;
      };
 
      // Create Recipe
@@ -113,6 +135,19 @@ export interface Translation {
           click_to_upload: string;
           add_image: string;
           crop_image: string;
+           crop_perfect:string;
+          StepImage:string;
+          Add_Step_Image:string;
+           Import_new_recipe:string;
+          recipe_url:string;
+           ImportRecipe:string;
+           tips_1:string;
+           tips_2:string,
+           tips_3:string,
+           tips_4:string,
+           tips_5:string,
+           ad_title:string,
+           ad_subtitle:string,
      };
 
      // Meal Planner
@@ -195,6 +230,34 @@ export interface Translation {
           import_recipes: string;
           delete_account: string;
           danger_zone: string;
+          Current_Password: string;
+          New_Password: string;
+          Confirm_Password: string;
+          Update_Password: string;
+          Recipe_notifications: string;
+          Marketing_emails: string;
+          Save_Settings: string;
+          TwoFA_Status: string;
+          Enable_TwoFA: string;
+          TwoFA_Description:string;
+          Enable_2FA:string;
+          Public:string;
+          Private:string;
+          public_dusc:string;
+          Private_dusc:string;
+          Save_Changes:string;
+          Data_Privacy: string;
+          Show_Email_Publicly: string;
+          Show_Followers_Count: string;
+          Allow_Direct_Messages:string;
+          Blocked_Users:string;
+          No_Blocked_Users_Message: string;
+          No_Blocked_Users:string;
+          Storage_Usage:string;
+          Photos_Videos: string;
+          Recipes_Data: string;
+          Total_Used: string;
+          Manage_Storage: string;
      };
 
      // Footer
@@ -310,6 +373,9 @@ export const translations: Record<"en" | "ar", Translation> = {
                confirm: "Confirm",
                yes: "Yes",
                no: "No",
+                 Follow:"Follow",
+               Following:"Following",
+               Crop:"Crop"
           },
           home: {
                title: "EEINA Food",
@@ -326,6 +392,7 @@ export const translations: Record<"en" | "ar", Translation> = {
                trending_now: "Trending Now",
                premium_recipes: "Premium Recipes",
                upgrade_now: "Upgrade Now",
+               Paste_recipe_URL:"Paste_recipe_URL",
           },
           recipe: {
                cooking_time: "Cooking Time",
@@ -348,6 +415,7 @@ export const translations: Record<"en" | "ar", Translation> = {
                leave_comment: "Leave a Comment",
                mark_complete: "Mark as complete",
                view_all_ingredients: "View all ingredients",
+               View_Recipe:"View Recipe"
           },
           profile: {
                edit_profile: "Edit Profile",
@@ -411,6 +479,19 @@ export const translations: Record<"en" | "ar", Translation> = {
                click_to_upload: "Click to upload",
                add_image: "Add Image",
                crop_image: "Crop Image",
+               crop_perfect:"Then crop to perfect size",
+               StepImage:"Step Image (Optional)",
+               Add_Step_Image:"Add Step Image",
+                Import_new_recipe:"Import new recipe",
+                recipe_url:" Import a recipe from a URL to automatically fill in the details",
+                ImportRecipe:" Import Recipe",
+                tips_1:"Use high-quality images to make your recipe more appealing",
+                tips_2:"Be specific with measurements and cooking times",
+                tips_3:"Include step-by-step photos for complex techniques",
+                tips_4:"Add personal notes and variations to make it unique",
+                tips_5:"Test your recipe multiple times before publishing",
+                ad_title: "Your Brand Here",
+                ad_subtitle: "Reach thousands of food enthusiasts"
           },
           meal_planner: {
                title: "Meal Planner",
@@ -486,6 +567,35 @@ export const translations: Record<"en" | "ar", Translation> = {
                import_recipes: "Import Recipes",
                delete_account: "Delete Account",
                danger_zone: "Danger Zone",
+               Current_Password: "Current Password",
+               New_Password: "New Password",
+               Confirm_Password: "Confirm New Password",
+               Update_Password: "Update Password",
+               Recipe_notifications:"Recipe notifications",
+               Marketing_emails: "Marketing emails",
+               Save_Settings: " Save Settings",
+               TwoFA_Status: "2FA is currently disabled",
+               Enable_TwoFA: "Enable 2FA to secure your account",
+               TwoFA_Description:"Two-factor authentication adds an extra layer of security to your account.",
+               Enable_2FA:"Enable 2FA",
+               Public:"Public",
+               Private:"Private",
+               public_dusc:"Anyone can see your profile",
+               Private_dusc:"Anyone can see your profile",
+               Save_Changes:"Save Changes",
+               Data_Privacy: "Data & Privacy",
+               Show_Email_Publicly: "Show email publicly",
+               Show_Followers_Count: "Show followers count",
+               Allow_Direct_Messages: "Allow direct messages",
+               Blocked_Users: "Blocked Users",
+               No_Blocked_Users_Message: "You haven't blocked any users yet.",
+               No_Blocked_Users: "No blocked users",
+               Storage_Usage: "Storage Usage",
+               Photos_Videos: "Photos & Videos",
+               Recipes_Data: "Recipes & Data",
+               Total_Used: "Total Used",
+               Manage_Storage:"Manage Storage"
+
           },
           footer: {
                company: "COMPANY",
@@ -574,9 +684,9 @@ export const translations: Record<"en" | "ar", Translation> = {
           nav: {
                home: "الرئيسية",
                explore: "استكشف",
-               saved: "المحفوظة",
-               planner: "مخطط الوجبات",
-               lists: "القوائم",
+               saved: "المفضلة",
+               planner: "خطة التغذية ",
+               lists: "قائمة التسوق",
                profile: "الملف الشخصي",
                search_placeholder: "البحث عن الوصفات...",
           },
@@ -596,25 +706,29 @@ export const translations: Record<"en" | "ar", Translation> = {
                confirm: "تأكيد",
                yes: "نعم",
                no: "لا",
+               Follow:"تابع",
+               Following:"يتابع" ,
+               Crop:"قص"
           },
           home: {
-               title: "إيينا للطعام",
-               subtitle: "اكتشف وصفات مذهلة وخطط وجباتك",
-               trending_recipes: "الوصفات الرائجة",
-               popular_this_week: "الأكثر شعبية هذا الأسبوع",
-               recent_activity: "النشاط الأخير",
-               top_creators: "أفضل الطهاة",
+               title: "إيناء للطعام",
+               subtitle: "اكتشف وصفات لذيذة ونظّم وجباتك بسهولة",
+               trending_recipes: "الوصفات الاكثر شيوعًا",
+               popular_this_week: "الأكثر شيوعًا هذا الأسبوع",
+               recent_activity: "مؤخرًا ",
+               top_creators: "الطهاة المميزون ",
                quick_actions: "إجراءات سريعة",
-               create_recipe: "إنشاء وصفة",
-               meal_planner: "مخطط الوجبات",
+               create_recipe: " أضف وصفة",
+               meal_planner:  "خطة التغذية ",
                shopping_list: "قائمة التسوق",
                import_recipe: "استيراد وصفة",
-               trending_now: "الرائج الآن",
-               premium_recipes: "الوصفات المميزة",
+               trending_now: "الأكثر رواجًا الآن",
+               premium_recipes: "وصفات  المميزة",
                upgrade_now: "ترقية الآن",
+               Paste_recipe_URL:"ضع رابط الوصفة",
           },
           recipe: {
-               cooking_time: "وقت الطبخ",
+               cooking_time: "مدة الطهي ",
                cuisine: "المطبخ",
                serves: "يكفي لـ",
                difficulty: "مستوى الصعوبة",
@@ -622,7 +736,7 @@ export const translations: Record<"en" | "ar", Translation> = {
                intermediate: "متوسط",
                advanced: "متقدم",
                ingredients: "المكونات",
-               instructions: "التعليمات",
+               instructions: "طريقة التحضير",
                servings: "الحصص",
                add_to_list: "إضافة للقائمة",
                nutritional_info: "المعلومات الغذائية",
@@ -630,130 +744,147 @@ export const translations: Record<"en" | "ar", Translation> = {
                protein: "البروتين",
                carbs: "الكربوهيدرات",
                fat: "الدهون",
-               comments: "تعليقات الوصفة",
+               comments: "التعليقات ",
                leave_comment: "اترك تعليقاً",
                mark_complete: "تحديد كمكتمل",
                view_all_ingredients: "عرض جميع المكونات",
+               View_Recipe:" عرض الوصفة"
           },
           profile: {
-               edit_profile: "تعديل الملف الشخصي",
+               edit_profile: "تعديل الملف ",
                account_settings: "إعدادات الحساب",
                posts: "المنشورات",
                followers: "المتابعون",
-               following: "يتابع",
+               following: "أتابع",
                recipes_created: "الوصفات المنشأة",
-               latest_activity: "آخر نشاط",
-               add_new_recipe: "إضافة وصفة جديدة",
+               latest_activity: " أحدث الأنشطة ",
+               add_new_recipe: " أضف وصفة جديدة ",
                quick_actions: "إجراءات سريعة",
                manage_followers: "إدارة المتابعين",
                no_activity: "لا يوجد نشاط بعد",
-               no_recipes: "لم يتم إنشاء وصفات بعد",
+               no_recipes:"لم تضف أي وصفات بعد",
                create_first_recipe: "أنشئ وصفتك الأولى",
                food_enthusiast: "عاشق للطعام وطاهي منزلي",
                recipes: "الوصفات",
                likes: "الإعجابات",
-               view_profile: "عرض الملف الشخصي",
+               view_profile: "عرض الملف ",
                edit: "تعديل",
                member_since: "عضو منذ",
                account_type: "نوع الحساب",
                premium: "مميز",
-               verified: "محقق",
+               verified: "موثّق",
                profile_completion: "اكتمال الملف الشخصي",
                verification: "التحقق",
-               share_culinary: "شارك إبداعاتك الطهوية مع المجتمع",
+               share_culinary: "شارك وصفاتك وإبداعاتك مع المجتمع ",
                enter_recipe_url: "أدخل رابط الوصفة",
                import_recipe: "استيراد وصفة",
                showing_posts: "عرض الكل",
-               posts_count: "المنشورات",
+               posts_count: "عدد المنشورات",
                show_less: "عرض أقل",
                show_more_creators: "عرض المزيد من الطهاة",
                post: "نشر",
                add_comment: "أضف تعليقاً...",
-               created: "تم الإنشاء",
-               no_recipes_category: "لم يتم العثور على وصفات في فئة",
-               category: "فئة",
-               create_recipe_see: "أنشئ وصفتك الأولى لرؤيتها هنا",
+               created: "تمت الإضافة ",
+               no_recipes_category: "لا توجد وصفات في هذه الفئة",
+               category: "الفئة",
+               create_recipe_see: "أضف وصفتك الأولى لتظهر هنا",
           },
           create_recipe: {
-               title: "إنشاء وصفة",
-               create_new_recipe: "إنشاء وصفة جديدة",
-               recipe_title: "عنوان الوصفة",
+               title: "أضف وصفة",
+               create_new_recipe: "إضافة وصفة جديدة",
+               recipe_title:  "اسم الوصفة",
                ingredient_name: "اسم المكون",
-               preparation_time: "وقت التحضير",
+               preparation_time: "مدة التحضير",
                servings: "عدد الحصص",
                video_url: "رابط الفيديو",
                description: "الوصف",
-               thumbnail_image: "الصورة المصغرة",
+               thumbnail_image: "الصورة الرئيسية",
                additional_images: "صور إضافية",
                add_ingredients: "إضافة المكونات",
-               instructions: "التعليمات",
+               instructions: "طريقة التحضير",
                quantity: "الكمية",
                weight: "اختر الوزن",
                step: "الخطوة",
                add_step: "إضافة خطوة",
-               create_recipe: "إنشاء الوصفة",
+               create_recipe: "إضافةالوصفة",
                import_new_recipe: "استيراد وصفة جديدة",
                recipe_tips: "نصائح الوصفة",
-               click_to_upload: "انقر للرفع",
+               click_to_upload: "اضغط للرفع",
                add_image: "إضافة صورة",
                crop_image: "قص الصورة",
+               crop_perfect:"اضبط الصورة للحجم المناسب",
+               StepImage:"أضف صورة (اختياري)",
+               Add_Step_Image:"أضف صورة",
+               Import_new_recipe:"استيراد وصفة جديدة",
+               recipe_url:"استورد وصفة من رابط وسيتم ملء التفاصيل تلقائيًا",
+               ImportRecipe:"استيراد وصفة",
+              tips_1: "استخدم صورًا عالية الجودة لجعل وصفتك أكثر جاذبية",
+               tips_2: "كن محددًا في المقادير وأوقات الطهي",
+               tips_3: "أضف صورًا خطوة بخطوة للتقنيات المعقدة",
+               tips_4: "أضف ملاحظاتك الشخصية والتغييرات لتجعلها مميزة",
+               tips_5: "جرّب وصفتك عدة مرات قبل نشرها",
+               ad_title: "علامتك التجارية هنا",
+               ad_subtitle: "لتصل إلى آلاف عشاق الطعام"
+
+
+
           },
           meal_planner: {
-               title: "مخطط الوجبات",
-               plan_meals: "خطط وجباتك وتتبع أهدافك الغذائية",
+               title: "خطة التغذية",
+               plan_meals: "خطط وجباتك وتابع أهدافك الغذائية",
                daily_nutrition: "التغذية اليومية",
-               weekly_summary: "الملخص الأسبوعي",
+               weekly_summary: "ملخص  الأسبوعي",
                breakfast: "الإفطار",
                lunch: "الغداء",
                dinner: "العشاء",
                snack: "وجبة خفيفة",
                add_custom_meal: "إضافة وجبة مخصصة",
-               trending_recipes: "الوصفات الرائجة",
-               saved_recipes: "الوصفات المحفوظة",
-               search_recipes: "البحث في الوصفات",
+               trending_recipes: "الوصفات الاكتر شيوعًا",
+               saved_recipes:  "الوصفات المفضلة",
+               search_recipes:  "ابحث في الوصفات",
                nutrition_goals: "الأهداف الغذائية",
                avg_daily_calories: "متوسط السعرات اليومية",
-               days_on_track: "الأيام على المسار الصحيح",
+               days_on_track: "أيام الالتزام",
                meals_planned: "الوجبات المخططة",
           },
           shopping_list: {
                title: "قائمة التسوق",
-               shopping_progress: "تقدم التسوق",
-               items_completed: "عنصر مكتمل",
+               shopping_progress: "حالة القائمة ",
+               items_completed: "العناصر المكتملة",
                quick_add: "إضافة سريعة",
                add_item: "إضافة عنصر",
-               shopping_stats: "إحصائيات التسوق",
+               shopping_stats: "إحصائيات القائمة",
                total_items: "إجمالي العناصر",
                completed: "مكتمل",
                remaining: "متبقي",
                progress: "التقدم",
-               categories: "الفئات",
+               categories: "التصنيفات",
                share_list: "مشاركة",
                export_list: "تصدير",
-               clear_completed: "مسح المكتمل",
+               clear_completed:"حذف العناصر المكتملة",
           },
           explore: {
-               title: "استكشف الوصفات",
-               discover_recipes: "اكتشف وصفات مذهلة من جميع أنحاء العالم",
+               title: "اكتشف الوصفات ",
+               discover_recipes: "تعرف على وصفات شهية من مختلف مطابخ العالم",
                featured_categories: "الفئات المميزة",
-               search_recipes: "البحث في الوصفات...",
-               category: "الفئة",
+               search_recipes: "ابحث عن وصفات...",
+               category: "التصنيف",
                cuisine: "المطبخ",
-               difficulty: "الصعوبة",
-               showing_results: "عرض",
-               no_recipes_found: "لم يتم العثور على وصفات",
-               adjust_filters: "جرب تعديل البحث أو المرشحات",
+               difficulty: "مستوى الصعوبة",
+               showing_results: "عرض النتائج",
+               no_recipes_found: "لا توجد وصفات مطابقة",
+               adjust_filters: "عدّل خيارات البحث لتحصل على نتائج أفضل",
           },
           saved: {
-               title: "الوصفات المحفوظة",
+               title: "الوصفات المفضلة",
                your_collection: "مجموعتك من الوصفات المفضلة",
-               recipes_saved: "وصفة محفوظة",
-               search_saved: "البحث في الوصفات المحفوظة...",
-               no_saved_recipes: "لا توجد وصفات محفوظة",
-               start_saving: "ابدأ بحفظ الوصفات لرؤيتها هنا",
-               saved_date: "محفوظ",
+               recipes_saved: "وصفة المفضلة",
+               search_saved: "ابحث في الوصفات المفضلة...",
+               no_saved_recipes: "لا توجد وصفات مفضلة بعد",
+               start_saving: "ابدأ بإضافة وصفات إلى المفضلة لتظهر هنا",
+               saved_date: "تاريخ الإضافة",
                ago: "منذ",
-               servings: "حصص",
+               servings: "عدد الحصص",
           },
           settings: {
                title: "الإعدادات",
@@ -772,17 +903,47 @@ export const translations: Record<"en" | "ar", Translation> = {
                import_recipes: "استيراد الوصفات",
                delete_account: "حذف الحساب",
                danger_zone: "منطقة الخطر",
+               Current_Password: "كلمة المرور الحالية",
+               New_Password: "كلمة المرور الجديدة",
+               Confirm_Password: "تأكيد كلمة المرور الجديدة",
+               Update_Password: "تحديث كلمة المرور",
+               Recipe_notifications: "إشعارات الوصفات",
+               Marketing_emails: "رسائل تسويقية عبر البريد",
+               Save_Settings: "حفظ الإعدادات",
+               TwoFA_Status: "المصادقة الثنائية غير مفعّلة",
+               Enable_TwoFA: "فعّل المصادقة الثنائية لتعزيز الأمان",
+               TwoFA_Description: "تضيف المصادقة الثنائية طبقة إضافية من الحماية لحسابك.",
+               Enable_2FA: "تفعيل المصادقة الثنائية",
+               Public: "عام",
+               Private: "خاص",
+               public_dusc:" يمكن للجميع مشاهدة ملفك الشخصي",
+               Private_dusc:" يمكن للمتابعين فقط مشاهدة ملفك الشخصي",
+               Save_Changes:"حفظ التغييرات",
+               Data_Privacy: "البيانات والخصوصية",
+               Show_Email_Publicly: "إظهار البريد الإلكتروني للعامة",
+               Show_Followers_Count: "إظهار عدد المتابعين",
+               Allow_Direct_Messages: "السماح بالرسائل المباشرة",
+               Blocked_Users: "المستخدمون المحظورون",
+               No_Blocked_Users_Message: "لم تقم بحظر أي مستخدم بعد.",
+               No_Blocked_Users: "لا يوجد مستخدمون محظورون",
+               Storage_Usage: "استخدام التخزين",
+               Photos_Videos: "الصور والفيديوهات",
+               Recipes_Data: "الوصفات والبيانات",
+               Total_Used: "إجمالي الاستخدام",
+                Manage_Storage: "إدارة التخزين"
+
+
           },
           footer: {
-               company: "الشركة",
-               help: "المساعدة",
+               company: "عن الشركة",
+               help: "مركز المساعدة",
                newsletter: "النشرة الإخبارية",
-               about: "حول",
-               features: "الميزات",
-               works: "الأعمال",
+               about: "من نحن",
+               features: "مميزاتنا",
+               works: "أعمالنا",
                career: "الوظائف",
-               customer_support: "دعم العملاء",
-               delivery_details: "تفاصيل التوصيل",
+               customer_support: "خدمة العملاء",
+               delivery_details: "معلومات التوصيل",
                terms_conditions: "الشروط والأحكام",
                privacy_policy: "سياسة الخصوصية",
                enter_email: "أدخل عنوان بريدك الإلكتروني",

@@ -74,7 +74,7 @@ export const Login = (): JSX.Element => {
                         <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 mb-6">
                             <ChefHat className="w-16 h-16 text-white mx-auto" />
                         </div>
-                        <h1 className="text-4xl font-bold mb-4">Welcome to EEINA</h1>
+                        <h1 className="text-4xl font-bold mb-4">{language=="ar"?"مرحباً بك في إيناء":"Welcome to EEINA"}</h1>
                         <p className="text-xl text-white/90 mb-8">
                             {language === "ar"
                                 ? "اكتشف وصفات مذهلة وخطط وجباتك وحقق أهدافك الصحية"
@@ -156,7 +156,8 @@ export const Login = (): JSX.Element => {
                                             }
                                             className={`h-12 ${
                                                 isRTL ? "pr-10 text-right" : "pl-10"
-                                            } border-gray-300 focus:border-[#22ae4b] focus:ring-[#22ae4b]`}
+                                            } border-gray-300 focus:border-[#22ae4b] focus:ring-[#22ae4b] 
+                                            `}
                                             {...register("email")}
                                         />
                                     </div>

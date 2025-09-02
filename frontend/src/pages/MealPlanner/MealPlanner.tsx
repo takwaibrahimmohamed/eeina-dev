@@ -915,8 +915,8 @@ export const MealPlanner = (): JSX.Element => {
                            onClick={() => setSelectedDate(date)}
                         >
                            <div className="text-center">
-                              <div className="text-xs sm:text-sm font-medium mb-1">{dayNames[date.getDay()]}</div>
-                              <div className="text-lg sm:text-2xl font-bold mb-1 sm:mb-2">{date.getDate()}</div>
+                              <div className="text-[.5rem] sm:text-sm font-medium mb-1">{dayNames[date.getDay()]}</div>
+                              <div className="text-xs sm:text-2xl font-bold mb-1 sm:mb-2">{date.getDate()}</div>
                               {dayNutrition.calories > 0 && viewMode === "week" && (
                                  <div className={`text-xs ${isSelected ? "text-white/80" : "text-gray-600"}`}>
                                     {dayNutrition.calories} cal
@@ -967,7 +967,7 @@ export const MealPlanner = (): JSX.Element => {
                         <div className="flex items-center justify-between mb-6">
                            <div className="flex items-center gap-2 sm:gap-3">
                               <TrendingUp className="w-5 h-5 text-[#22ae4b]" />
-                              <h4 className="text-lg font-bold text-gray-900">{t.meal_planner.trending_recipes}</h4>
+                              <h4 className="text-base sm:text-lg font-bold text-gray-900">{t.meal_planner.trending_recipes}</h4>
                            </div>
                            <Link to={language === "ar" ? "/ar/explore" : "/explore"}>
                               <Button variant="outline" size="sm">

@@ -180,20 +180,22 @@ export const Home = (): JSX.Element => {
    ];
 
    return (
-      <div className="bg-gradient-to-br from-gray-50 to-white min-h-screen">
+      <div className="bg-gradient-to-br from-gray-50
+       to-white min-h-screen">
          {/* Header */}
          <Header />
 
          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
             {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 
+            gap-4 sm:gap-6 lg:gap-8">
                {/* Left Column - User Profile & Quick Actions */}
                <div className="lg:col-span-3 order-2 lg:order-1">
                   {/* Enhanced User Profile Card */}
                   <Card className="mb-6 overflow-hidden">
                      <div className="h-20 bg-gradient-to-r from-[#22ae4b] to-[#1c9a40] relative">
-                        <div className="absolute -bottom-8 left-6">
-                           <Link to="/profile">
+                        <div className={`absolute -bottom-8 ${isRTL?"right-6":"left-6"}`}>
+                           <Link to="/profile" className="block">
                               <Avatar className="w-16 h-16 border-4 border-white shadow-lg hover:scale-105 transition-transform">
                                  <img
                                     className="w-full h-full object-cover"
@@ -205,7 +207,7 @@ export const Home = (): JSX.Element => {
                         </div>
                      </div>
                      <CardContent className="pt-12 pb-6 px-4 sm:px-6">
-                        <Link to="/profile">
+                        <Link to="/profile" >
                            <h3 className="font-bold text-lg text-gray-900 hover:text-[#22ae4b] transition-colors mb-2">
                               {userProfile.name}
                            </h3>
@@ -226,12 +228,12 @@ export const Home = (): JSX.Element => {
                         <div className="flex flex-col sm:flex-row gap-2">
                            <Link to="/profile" className="flex-1">
                               <Button variant="outline" size="sm" className="w-full text-xs">
-                                 View Profile
+                                  {t.profile.view_profile}
                               </Button>
                            </Link>
                            <Link to="/edit-profile" className="flex-1">
                               <Button size="sm" className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-xs">
-                                 Edit
+                                  {t.profile.edit_profile}
                               </Button>
                            </Link>
                         </div>
@@ -243,25 +245,25 @@ export const Home = (): JSX.Element => {
                      <CardContent className="p-4 sm:p-6">
                         <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                            <Plus className="w-5 h-5 text-[#22ae4b]" />
-                           Quick Actions
+                          {t.home.quick_actions}
                         </h3>
                         <div className="space-y-3">
-                           <Link to="/create-recipe">
+                           <Link to="/create-recipe" className="block">
                               <Button className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-white justify-start">
                                  <Plus className="w-4 h-4 mr-2" />
-                                 Create Recipe
+                                  {t.home.create_recipe}
                               </Button>
                            </Link>
-                           <Link to="/planner">
+                           <Link to="/planner" className="block">
                               <Button variant="outline" className="w-full justify-start">
                                  <Calendar className="w-4 h-4 mr-2" />
-                                 Meal Planner
+                                    {t.home.meal_planner}
                               </Button>
                            </Link>
-                           <Link to="/lists">
+                           <Link to="/lists" className="block">
                               <Button variant="outline" className="w-full justify-start">
                                  <Bookmark className="w-4 h-4 mr-2" />
-                                 Shopping List
+                                 {t.home.shopping_list}
                               </Button>
                            </Link>
                         </div>
@@ -271,13 +273,14 @@ export const Home = (): JSX.Element => {
                   {/* Import Recipe */}
                   <Card className="hidden lg:block">
                      <CardContent className="p-4 sm:p-6">
-                        <h3 className="font-bold text-gray-900 mb-4">Import Recipe</h3>
+                        <h3 className="font-bold text-gray-900 mb-4">{t.home.import_recipe}</h3>
                         <div className="space-y-3">
                            <Input
-                              placeholder="Paste recipe URL..."
+                              placeholder={t.home.Paste_recipe_URL}
                               className="border-gray-300 focus:border-[#22ae4b] focus:ring-[#22ae4b]"
                            />
-                           <Button className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-white">Import Recipe</Button>
+                           <Button className="w-full bg-[#22ae4b]
+                            hover:bg-[#1c9a40] text-white">{t.home.import_recipe}</Button>
                         </div>
                      </CardContent>
                   </Card>
@@ -321,7 +324,7 @@ export const Home = (): JSX.Element => {
                            <Link to="/recipe/2">
                               <Button className="bg-[#22ae4b] hover:bg-[#1c9a40] text-white text-sm">
                                  <Play className="w-4 h-4 mr-2" />
-                                 View Recipe
+                                  {t.recipe.View_Recipe}
                               </Button>
                            </Link>
                         </div>
@@ -709,7 +712,8 @@ export const Home = (): JSX.Element => {
                            </div>
                            <Button
                               variant="outline"
-                              className="border-white text-white hover:bg-white hover:text-[#22ae4b] transition-colors text-sm"
+                             className="border-white text-[#22ae4b] hover:bg-[#1d9541]
+                               hover:text-white transition-colors text-sm"
                            >
                               {t.home.upgrade_now}
                            </Button>

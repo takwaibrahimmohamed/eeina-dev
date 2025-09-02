@@ -92,15 +92,15 @@
 }
 
 .rtl .flex {
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
 }
 
 .rtl .text-left {
-  text-align: right;
+  /* text-align: right; */
 }
 
 .rtl .text-right {
-  text-align: left;
+  /* text-align: left; */
 }
 
 .rtl .ml-auto {

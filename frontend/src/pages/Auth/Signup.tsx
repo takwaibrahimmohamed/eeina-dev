@@ -96,7 +96,7 @@ export const Signup = (): JSX.Element => {
                             <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 mb-6 inline-block">
                                 <Heart className="w-16 h-16 text-white mx-auto" />
                             </div>
-                            <h1 className="text-4xl font-bold mb-4">Join EEINA Today</h1>
+                            <h1 className="text-4xl font-bold mb-4">{language=="ar"?"انضم إلى إيناء اليوم":"Join EEINA Today"}</h1>
                             <p className="text-xl text-white/90 mb-8">
                                 {language === "ar"
                                     ? "ابدأ رحلتك نحو نمط حياة صحي مع وصفات مخصصة"

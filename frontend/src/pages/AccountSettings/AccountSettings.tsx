@@ -23,9 +23,11 @@ import {
   Check,
   X,
   AlertTriangle,
-  HelpCircle
+  HelpCircle,
+  ChevronLeft
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
 
 export const AccountSettings = (): JSX.Element => {
   const { t, isRTL, language } = useLanguage();
@@ -52,7 +54,7 @@ export const AccountSettings = (): JSX.Element => {
   const getLocalizedPath = (path: string) => {
     return language === 'ar' ? `/ar${path === '/' ? '' : path}` : path;
   };
-
+const ChevronIcon = isRTL ? ChevronLeft : ChevronRight;
   const toggleNotification = (key: keyof typeof notifications) => {
     setNotifications(prev => ({
       ...prev,
@@ -220,7 +222,7 @@ export const AccountSettings = (): JSX.Element => {
   };
   return (
     <div className="bg-gray-50 min-h-screen">
-      <TopCreatorsSection />
+      <Header />
       
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Header */}
@@ -235,13 +237,13 @@ export const AccountSettings = (): JSX.Element => {
           <p className="text-gray-600">{language === 'ar' ? 'إدارة إعدادات حسابك وتفضيلاتك' : 'Manage your account settings and preferences'}</p>
         </div>
 
-        <div className="grid grid-cols-12 gap-8">
+        <div className="grid grid-cols-12 gap-4 sm:gap-8">
           {/* Main Settings */}
           <div className="col-span-12 lg:col-span-8">
             <div className="space-y-8">
               {settingSections.map((section, sectionIndex) => (
                 <Card key={sectionIndex}>
-                  <CardContent className="p-6">
+                  <CardContent className="p-4 sm:p-6">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-10 h-10 bg-[#22ae4b] rounded-full flex items-center justify-center">
                         <section.icon className="w-5 h-5 text-white" />
@@ -254,7 +256,7 @@ export const AccountSettings = (): JSX.Element => {
                         <div key={itemIndex}>
                           {item.link ? (
                             <Link to={item.link}>
-                              <div className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                              <div className="flex items-center justify-between p-2 sm:p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                                 <div className="flex items-center gap-4">
                                   <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
                                     <item.icon className="w-4 h-4 text-gray-600" />
@@ -264,12 +266,12 @@ export const AccountSettings = (): JSX.Element => {
                                     <p className="text-sm text-gray-600">{item.description}</p>
                                   </div>
                                 </div>
-                                <ChevronRight className="w-5 h-5 text-gray-400" />
+                                <ChevronIcon className="w-5 h-5 text-gray-400" />
                               </div>
                             </Link>
                           ) : (
                             <div 
-                              className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                              className="flex items-center justify-between p-2 sm:p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
                               onClick={() => item.interactive && item.action && handleItemClick(item.action)}
                             >
                               <div className="flex items-center gap-4">
@@ -285,52 +287,70 @@ export const AccountSettings = (): JSX.Element => {
                               {/* Toggle switches for notifications */}
                               {item.action === 'push' && (
                                 <div 
-                                  className={`w-12 h-6 rounded-full cursor-pointer transition-colors ${
-                                    notifications.push ? 'bg-[#22ae4b]' : 'bg-gray-300'
+                                  className={`min-w-[48px] sm:w-12 h-6 rounded-full 
+                                    cursor-pointer transition-colors ${
+                                    notifications.push ? 'bg-[#22ae4b]' : 
+                                    'bg-gray-300'
                                   }`}
                                   onClick={() => toggleNotification('push')}
                                 >
-                                  <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
-                                    notifications.push ? 'translate-x-6' : 'translate-x-0.5'
+                                  <div className={`w-5 h-5 bg-white rounded-full shadow-md
+                                   transform transition-transform ${
+                                    isRTL
+                                    ? notifications.push
+                                      ? 'translate-x-[-1.5rem]'  
+                                      : '-translate-x-1/42' 
+                                    : notifications.push
+                                    ? 'translate-x-6' : 'translate-x-0.5'
                                   } mt-0.5`} />
                                 </div>
                               )}
                               
                               {item.action === 'email-notif' && (
                                 <div 
-                                  className={`w-12 h-6 rounded-full cursor-pointer transition-colors ${
+                                  className={`min-w-[48px] sm:w-12 h-6 rounded-full cursor-pointer transition-colors ${
                                     notifications.email ? 'bg-[#22ae4b]' : 'bg-gray-300'
                                   }`}
                                   onClick={() => toggleNotification('email')}
                                 >
                                   <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
-                                    notifications.email ? 'translate-x-6' : 'translate-x-0.5'
+                                    isRTL
+                                    ? notifications.email
+                                      ? 'translate-x-[-1.5rem]'  
+                                      : '-translate-x-1/42' 
+                                    : notifications.email
+                                    ? 'translate-x-6' : 'translate-x-0.5'
                                   } mt-0.5`} />
                                 </div>
                               )}
                               
                               {item.action === 'marketing' && (
                                 <div 
-                                  className={`w-12 h-6 rounded-full cursor-pointer transition-colors ${
+                                  className={`min-w-[48px] sm:w-12 h-6 rounded-full cursor-pointer transition-colors ${
                                     notifications.marketing ? 'bg-[#22ae4b]' : 'bg-gray-300'
                                   }`}
                                   onClick={() => toggleNotification('marketing')}
                                 >
                                   <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
-                                    notifications.marketing ? 'translate-x-6' : 'translate-x-0.5'
+                                     isRTL
+                                    ? notifications.marketing 
+                                      ? 'translate-x-[-1.5rem]'  
+                                      : '-translate-x-1/42' 
+                                    : notifications.marketing 
+                                    ? 'translate-x-6' : 'translate-x-0.5'
                                   } mt-0.5`} />
                                 </div>
                               )}
                               
                               {/* Action buttons for other items */}
                               {!item.action?.includes('notif') && !item.action?.includes('push') && !item.action?.includes('marketing') && (
-                                <ChevronRight className="w-5 h-5 text-gray-400" />
+                                <ChevronIcon className="w-5 h-5 text-gray-400" />
                               )}
                             </div>
                           )}
                           
                           {itemIndex < section.items.length - 1 && (
-                            <Separator className="ml-16" />
+                            <Separator className={`${isRTL?"ml-2 sm:ml-16":"me-2 sm:me-16"}`} />
                           )}
                         </div>
                       ))}
@@ -341,7 +361,7 @@ export const AccountSettings = (): JSX.Element => {
 
               {/* Danger Zone */}
               <Card className="border-red-200">
-                <CardContent className="p-6">
+                <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
                       <Trash2 className="w-5 h-5 text-white" />
@@ -350,7 +370,7 @@ export const AccountSettings = (): JSX.Element => {
                   </div>
 
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between p-4 rounded-lg border border-red-200 bg-red-50">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-lg border border-red-200 bg-red-50 gap-2">
                       <div>
                         <h3 className="font-semibold text-red-900">{t.settings.delete_account}</h3>
                         <p className="text-sm text-red-700">{language === 'ar' ? 'حذف حسابك وجميع البيانات نهائياً' : 'Permanently delete your account and all data'}</p>
@@ -458,33 +478,33 @@ export const AccountSettings = (): JSX.Element => {
 
       {/* Modals */}
       {showModal === 'password' && (
-        <Modal title="Change Password" onClose={() => setShowModal(null)}>
+        <Modal title={t.settings.change_password} onClose={() => setShowModal(null)}>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Current Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">{t.settings.Current_Password}</label>
               <Input
                 type="password"
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
-                placeholder="Enter current password"
+                placeholder={language=="ar"?"أدخل كلمة المرور الحالية":"Enter current password"}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">New Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">{t.settings.New_Password}</label>
               <Input
                 type="password"
                 value={tempPassword}
                 onChange={(e) => setTempPassword(e.target.value)}
-                placeholder="Enter new password"
+                placeholder={language=="ar"?"أدخل كلمة المرور الجديدة":"Enter New password"}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Confirm New Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">{t.settings.Confirm_Password}</label>
               <Input
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm new password"
+                placeholder={t.settings.Confirm_Password}
               />
             </div>
             <div className="flex gap-3 pt-4">
@@ -492,14 +512,14 @@ export const AccountSettings = (): JSX.Element => {
                 onClick={handlePasswordChange}
                 className="flex-1 bg-[#22ae4b] hover:bg-[#1c9a40] text-white"
               >
-                Update Password
+               {t.settings.Update_Password}
               </Button>
               <Button 
                 variant="outline" 
                 onClick={() => setShowModal(null)}
                 className="flex-1"
               >
-                Cancel
+                {t.common.cancel}
               </Button>
             </div>
           </div>
@@ -507,54 +527,69 @@ export const AccountSettings = (): JSX.Element => {
       )}
 
       {showModal === 'email' && (
-        <Modal title="Email Settings" onClose={() => setShowModal(null)}>
+        <Modal title={t.settings.email_settings} onClose={() => setShowModal(null)}>
           <div className="space-y-4">
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-              <span className="font-medium">Recipe notifications</span>
+              <span className="font-medium">{t.settings.Recipe_notifications}</span>
               <div className={`w-12 h-6 rounded-full cursor-pointer transition-colors ${
                 notifications.email ? 'bg-[#22ae4b]' : 'bg-gray-300'
               }`} onClick={() => toggleNotification('email')}>
-                <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
-                  notifications.email ? 'translate-x-6' : 'translate-x-0.5'
-                } mt-0.5`} />
+                <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform
+                ${
+                                     isRTL
+                                    ?  notifications.email
+                                      ? 'translate-x-[-1.5rem]'  
+                                      : '-translate-x-1/42' 
+                                    : notifications.email
+                                    ? 'translate-x-6' : 'translate-x-0.5'
+                                  }
+                mt-0.5`} />
               </div>
             </div>
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-              <span className="font-medium">Marketing emails</span>
+              <span className="font-medium">{t.settings.Marketing_emails}</span>
               <div className={`w-12 h-6 rounded-full cursor-pointer transition-colors ${
                 notifications.marketing ? 'bg-[#22ae4b]' : 'bg-gray-300'
               }`} onClick={() => toggleNotification('marketing')}>
-                <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
-                  notifications.marketing ? 'translate-x-6' : 'translate-x-0.5'
-                } mt-0.5`} />
+                <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform
+                
+                ${
+                                     isRTL
+                                    ? notifications.marketing 
+                                      ? 'translate-x-[-1.5rem]'  
+                                      : '-translate-x-1/42' 
+                                    : notifications.marketing 
+                                    ? 'translate-x-6' : 'translate-x-0.5'
+                                  }
+                mt-0.5`} />
               </div>
             </div>
             <Button 
               onClick={() => setShowModal(null)}
               className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-white"
             >
-              Save Settings
+              {t.settings.Save_Settings}
             </Button>
           </div>
         </Modal>
       )}
 
       {showModal === '2fa' && (
-        <Modal title="Two-Factor Authentication" onClose={() => setShowModal(null)}>
+        <Modal title={t.settings.two_factor_auth} onClose={() => setShowModal(null)}>
           <div className="space-y-4">
             <div className="flex items-center gap-3 p-4 bg-green-50 rounded-lg">
               <Shield className="w-5 h-5 text-green-600" />
               <div>
-                <h4 className="font-medium text-green-900">2FA is currently disabled</h4>
-                <p className="text-sm text-green-700">Enable 2FA to secure your account</p>
+                <h4 className="font-medium text-green-900">{t.settings.TwoFA_Status}</h4>
+                <p className="text-sm text-green-700">{t.settings.two_factor_auth}</p>
               </div>
             </div>
             <div className="space-y-3">
               <p className="text-sm text-gray-600">
-                Two-factor authentication adds an extra layer of security to your account.
+                {t.settings.TwoFA_Description}
               </p>
               <Button className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-white">
-                Enable 2FA
+                {t.settings.Enable_2FA}
               </Button>
             </div>
           </div>
@@ -562,7 +597,7 @@ export const AccountSettings = (): JSX.Element => {
       )}
 
       {showModal === 'visibility' && (
-        <Modal title="Profile Visibility" onClose={() => setShowModal(null)}>
+        <Modal title={t.settings.profile_visibility} onClose={() => setShowModal(null)}>
           <div className="space-y-4">
             <div className="space-y-3">
               <label className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
@@ -575,8 +610,8 @@ export const AccountSettings = (): JSX.Element => {
                   className="text-[#22ae4b]"
                 />
                 <div>
-                  <div className="font-medium">Public</div>
-                  <div className="text-sm text-gray-600">Anyone can see your profile</div>
+                  <div className="font-medium">{t.settings.Public}</div>
+                  <div className="text-sm text-gray-600">{t.settings.public_dusc}</div>
                 </div>
               </label>
               <label className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
@@ -589,8 +624,8 @@ export const AccountSettings = (): JSX.Element => {
                   className="text-[#22ae4b]"
                 />
                 <div>
-                  <div className="font-medium">Private</div>
-                  <div className="text-sm text-gray-600">Only followers can see your profile</div>
+                  <div className="font-medium">{t.settings.privacy}</div>
+                  <div className="text-sm text-gray-600">{t.settings.Private_dusc}</div>
                 </div>
               </label>
             </div>
@@ -598,32 +633,32 @@ export const AccountSettings = (): JSX.Element => {
               onClick={() => setShowModal(null)}
               className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-white"
             >
-              Save Changes
+              {t.settings.Save_Changes}
             </Button>
           </div>
         </Modal>
       )}
 
       {showModal === 'storage' && (
-        <Modal title="Storage Usage" onClose={() => setShowModal(null)}>
+        <Modal title={t.settings.Storage_Usage} onClose={() => setShowModal(null)}>
           <div className="space-y-4">
             <div className="space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Photos & Videos</span>
+                <span className="text-gray-600">{t.settings.Photos_Videos}</span>
                 <span className="font-medium">2.4 GB</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div className="bg-[#22ae4b] h-2 rounded-full" style={{ width: '60%' }} />
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Recipes & Data</span>
+                <span className="text-gray-600">{t.settings.Recipes_Data}</span>
                 <span className="font-medium">156 MB</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div className="bg-blue-500 h-2 rounded-full" style={{ width: '20%' }} />
               </div>
               <div className="flex justify-between items-center pt-2 border-t">
-                <span className="font-medium">Total Used</span>
+                <span className="font-medium">{t.settings.Total_Used}</span>
                 <span className="font-bold text-[#22ae4b]">2.6 GB / 5 GB</span>
               </div>
             </div>
@@ -632,56 +667,77 @@ export const AccountSettings = (): JSX.Element => {
               className="w-full"
               onClick={() => console.log('Manage storage clicked')}
             >
-              Manage Storage
+              {t.settings.Manage_Storage}
             </Button>
           </div>
         </Modal>
       )}
 
       {showModal === 'blocked' && (
-        <Modal title="Blocked Users" onClose={() => setShowModal(null)}>
+        <Modal title={t.settings.Blocked_Users} onClose={() => setShowModal(null)}>
           <div className="space-y-4">
-            <p className="text-sm text-gray-600">You haven't blocked any users yet.</p>
+            <p className="text-sm text-gray-600">{t.settings.No_Blocked_Users_Message}</p>
             <div className="text-center py-8">
               <X className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-              <p className="text-gray-500">No blocked users</p>
+              <p className="text-gray-500">{t.settings.No_Blocked_Users}</p>
             </div>
           </div>
         </Modal>
       )}
 
       {showModal === 'data' && (
-        <Modal title="Data & Privacy" onClose={() => setShowModal(null)}>
+        <Modal title={t.settings.Data_Privacy} onClose={() => setShowModal(null)}>
           <div className="space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <span className="font-medium">Show email publicly</span>
+                <span className="font-medium">{t.settings.Show_Email_Publicly}</span>
                 <div className={`w-12 h-6 rounded-full cursor-pointer transition-colors ${
                   privacy.showEmail ? 'bg-[#22ae4b]' : 'bg-gray-300'
                 }`} onClick={() => togglePrivacy('showEmail')}>
-                  <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
-                    privacy.showEmail ? 'translate-x-6' : 'translate-x-0.5'
-                  } mt-0.5`} />
+                  <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform 
+                  ${
+                                     isRTL
+                                    ?  privacy.showEmail 
+                                      ? 'translate-x-[-1.5rem]'  
+                                      : '-translate-x-1/42' 
+                                    :  privacy.showEmail
+                                    ? 'translate-x-6' : 'translate-x-0.5'
+                                  }
+                   mt-0.5`} />
                 </div>
               </div>
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <span className="font-medium">Show followers count</span>
+                <span className="font-medium">{t.settings.Show_Followers_Count}</span>
                 <div className={`w-12 h-6 rounded-full cursor-pointer transition-colors ${
                   privacy.showFollowers ? 'bg-[#22ae4b]' : 'bg-gray-300'
                 }`} onClick={() => togglePrivacy('showFollowers')}>
-                  <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
-                    privacy.showFollowers ? 'translate-x-6' : 'translate-x-0.5'
-                  } mt-0.5`} />
+                  <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform 
+                  ${
+                                     isRTL
+                                    ? privacy.showFollowers
+                                      ? 'translate-x-[-1.5rem]'  
+                                      : '-translate-x-1/42' 
+                                    : privacy.showFollowers 
+                                    ? 'translate-x-6' : 'translate-x-0.5'
+                                  }
+                   mt-0.5`} />
                 </div>
               </div>
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <span className="font-medium">Allow direct messages</span>
+                <span className="font-medium">{t.settings.Allow_Direct_Messages}</span>
                 <div className={`w-12 h-6 rounded-full cursor-pointer transition-colors ${
                   privacy.allowMessages ? 'bg-[#22ae4b]' : 'bg-gray-300'
                 }`} onClick={() => togglePrivacy('allowMessages')}>
-                  <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
-                    privacy.allowMessages ? 'translate-x-6' : 'translate-x-0.5'
-                  } mt-0.5`} />
+                  <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform 
+                  ${
+                                     isRTL
+                                    ? privacy.allowMessages 
+                                      ? 'translate-x-[-1.5rem]'  
+                                      : '-translate-x-1/42' 
+                                    : privacy.allowMessages
+                                    ? 'translate-x-6' : 'translate-x-0.5'
+                                  }
+                   mt-0.5`} />
                 </div>
               </div>
             </div>
@@ -689,7 +745,7 @@ export const AccountSettings = (): JSX.Element => {
               onClick={() => setShowModal(null)}
               className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-white"
             >
-              Save Settings
+              {t.settings.Save_Settings}
             </Button>
           </div>
         </Modal>

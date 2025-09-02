@@ -1226,7 +1226,7 @@ export const Profile = (): JSX.Element => {
                             } flex items-center`}
                         >
                             <div className="relative">
-                                <Avatar className="w-32 h-32 sm:w-40 sm:h-40 border-4 border-white shadow-2xl">
+                                <Avatar className="w-28 h-28 sm:w-40 sm:h-40 border-4 border-white shadow-2xl">
                                     <img
                                         src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
                                         alt="Adam Ahmed"
@@ -1242,7 +1242,7 @@ export const Profile = (): JSX.Element => {
 
                         {/* Action Buttons */}
                         <div
-                            className={`absolute top-4 ${isRTL ? "right-4" : "right-4"} flex gap-2`}
+                            className={`absolute top-4 ${isRTL ? "left-4 justify-end" : "right-4 justify-start"} flex gap-2`}
                         >
                             <Link to={getLocalizedPath("/goals")}>
                                 <Button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-white/30 px-3 py-2 h-10 shadow-lg">
@@ -1275,12 +1275,10 @@ export const Profile = (): JSX.Element => {
                         >
                             <div className={`flex-1 ${isRTL ? "order-2" : ""}`}>
                                 <div
-                                    className={`flex items-center gap-3 mb-4 ${
-                                        isRTL ? "flex-row-reverse" : ""
-                                    }`}
+                                    className={`flex items-center gap-3 mb-4 `}
                                 >
                                     <h1
-                                        className={`text-3xl sm:text-4xl font-bold text-gray-900 ${
+                                        className={`text-base sm:text-4xl font-bold text-gray-900 ${
                                             isRTL ? "text-right" : "text-left"
                                         }`}
                                     >
@@ -1301,14 +1299,11 @@ export const Profile = (): JSX.Element => {
                                     {t.profile.food_enthusiast}
                                 </p>
                                 <div
-                                    className={`flex flex-wrap items-center gap-4 text-sm text-gray-500 ${
-                                        isRTL ? "flex-row-reverse" : ""
-                                    }`}
+                                    className={`flex flex-wrap items-center gap-4 
+                                        text-sm text-gray-500`}
                                 >
                                     <div
-                                        className={`flex items-center gap-2 ${
-                                            isRTL ? "flex-row-reverse" : ""
-                                        }`}
+                                        className={`flex items-center gap-2 `}
                                     >
                                         <Calendar className="w-4 h-4 text-[#22ae4b]" />
                                         <span>
@@ -1317,9 +1312,7 @@ export const Profile = (): JSX.Element => {
                                         </span>
                                     </div>
                                     <div
-                                        className={`flex items-center gap-2 ${
-                                            isRTL ? "flex-row-reverse" : ""
-                                        }`}
+                                        className={`flex items-center gap-2`}
                                     >
                                         <MapPin className="w-4 h-4 text-[#22ae4b]" />
                                         <span>
@@ -1329,9 +1322,7 @@ export const Profile = (): JSX.Element => {
                                         </span>
                                     </div>
                                     <div
-                                        className={`flex items-center gap-2 ${
-                                            isRTL ? "flex-row-reverse" : ""
-                                        }`}
+                                        className={`flex items-center gap-2`}
                                     >
                                         <Globe className="w-4 h-4 text-[#22ae4b]" />
                                         <span>adamahmed.com</span>
@@ -1568,11 +1559,11 @@ export const Profile = (): JSX.Element => {
                                             </div>
 
                                             {/* Interactive Actions */}
-                                            <div className="flex items-center gap-4 sm:gap-6 mb-3 sm:mb-4">
+                                            <div className="flex items-center gap-2 sm:gap-6 mb-3 sm:mb-4">
                                                 <Button
                                                     variant="ghost"
                                                     size="sm"
-                                                    className="flex items-center gap-2 text-gray-600 hover:text-red-500"
+                                                    className="flex items-center gap-2 text-gray-600 hover:text-red-500 pl-0 sm:px-3"
                                                 >
                                                     <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                                                     <span className="text-sm">{post.likes}</span>
@@ -1648,13 +1639,13 @@ export const Profile = (): JSX.Element => {
                                         {t.profile.quick_actions}
                                     </h3>
                                     <div className="space-y-2 sm:space-y-3">
-                                        <Link to={getLocalizedPath("/create-recipe")}>
+                                        <Link to={getLocalizedPath("/create-recipe")} className="block">
                                             <Button className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-white justify-start text-sm h-10 sm:h-12">
                                                 <Plus className="w-4 h-4 mr-2" />
                                                 {t.profile.add_new_recipe}
                                             </Button>
                                         </Link>
-                                        <Link to={getLocalizedPath("/planner")}>
+                                        <Link to={getLocalizedPath("/planner")} className="block">
                                             <Button
                                                 variant="outline"
                                                 className="w-full justify-start text-sm h-10 sm:h-12"
@@ -1663,7 +1654,7 @@ export const Profile = (): JSX.Element => {
                                                 {t.home.meal_planner}
                                             </Button>
                                         </Link>
-                                        <Link to={getLocalizedPath("/lists")}>
+                                        <Link to={getLocalizedPath("/lists")} className="block">
                                             <Button
                                                 variant="outline"
                                                 className="w-full justify-start text-sm h-10 sm:h-12"

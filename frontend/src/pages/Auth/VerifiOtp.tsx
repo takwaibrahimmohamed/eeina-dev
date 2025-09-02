@@ -121,7 +121,7 @@ export const VerifyOtp = (): JSX.Element => {
                                         handleKeyDown(e, index)
                                     }
                                     ref={(el) => (inputRefs.current[index] = el)}
-                                    className="w-12 h-12 sm:w-14 sm:h-14 text-center text-2xl font-semibold border border-gray-300 rounded-lg focus:border-[#22ae4b] focus:ring-1 focus:ring-[#22ae4b] transition"
+                                    className="w-8 h-8 sm:w-14 sm:h-14 text-center text-base sm:text-2xl font-semibold border border-gray-300 rounded-lg focus:border-[#22ae4b] focus:ring-1 focus:ring-[#22ae4b] transition"
                                 />
                             ))}
                         </div>
