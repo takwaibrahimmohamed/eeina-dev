@@ -184,7 +184,7 @@ export const Header = (): JSX.Element => {
                                                             className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                                       >
                                                             <User className="w-4 h-4 mr-2" />
-                                                            Profile
+                                                            {language=="ar"?"الملف الشخصي":"Profile"}
                                                       </Link>
                                                       <button
                                                             onClick={() => {
@@ -194,7 +194,7 @@ export const Header = (): JSX.Element => {
                                                             className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                                       >
                                                             <LogOut className="w-4 h-4 mr-2" />
-                                                            Logout
+                                                          {language=="ar"?"تسجيل الخروج ":"Logout"}
                                                       </button>
                                                 </div>
                                           )}
