@@ -258,7 +258,7 @@ export const GoalsSetup = (): JSX.Element => {
     <div className="flex items-center justify-center mb-8">
       {[1, 2, 3, 4].map((step) => (
         <div key={step} className="flex items-center">
-          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
+          <div className={`w-6 h-6 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold ${
             step <= currentStep 
               ? 'bg-[#22ae4b] text-white' 
               : 'bg-gray-200 text-gray-500'
@@ -266,7 +266,7 @@ export const GoalsSetup = (): JSX.Element => {
             {step < currentStep ? <Check className="w-5 h-5" /> : step}
           </div>
           {step < 4 && (
-            <div className={`w-12 h-1 mx-2 ${
+            <div className={`w-10 sm:w-12  h-1 mx-2 ${
               step < currentStep ? 'bg-[#22ae4b]' : 'bg-gray-200'
             }`} />
           )}
@@ -279,7 +279,7 @@ export const GoalsSetup = (): JSX.Element => {
     <div className="space-y-6">
       <div className="text-center mb-8">
         <Target className="w-16 h-16 text-[#22ae4b] mx-auto mb-4" />
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
           {language === 'ar' ? 'ما هي أهدافك؟' : 'What are your goals?'}
         </h2>
         <p className="text-gray-600">
@@ -301,8 +301,8 @@ export const GoalsSetup = (): JSX.Element => {
             }`}
             onClick={() => toggleGoal(goal.id)}
           >
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4">
+            <CardContent className="p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                   selectedGoals.includes(goal.id) ? 'bg-white' : goal.bgColor
                 }`}>
@@ -596,7 +596,7 @@ export const GoalsSetup = (): JSX.Element => {
           <div className="bg-[#22ae4b] text-white font-bold text-2xl px-6 py-3 rounded-xl inline-block mb-6">
             EEINA
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl sm:text-4xl  font-bold text-gray-900 mb-2">
             {language === 'ar' ? 'إعداد ملفك الشخصي' : 'Set Up Your Profile'}
           </h1>
           <p className="text-gray-600">
@@ -617,7 +617,7 @@ export const GoalsSetup = (): JSX.Element => {
             {currentStep === 4 && <Step4Preferences />}
 
             {/* Navigation */}
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
+            <div className="flex flex-col sm:flex-row items-center justify-between mt-8 pt-6 border-t border-gray-200">
               <div className="flex items-center gap-4">
                 {currentStep > 1 && (
                   <Button

@@ -9,8 +9,10 @@ import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
 import { Input } from "../../../../components/ui/input";
 import { Heart, MessageCircle, Share2, Bookmark } from "lucide-react";
+import { useLanguage } from "../../../../contexts/LanguageContext";
 
 export const RecipeCardSection = (): JSX.Element => {
+    const {language } = useLanguage();
   return (
     <Card className="bg-[#ececec] rounded-3xl border-0">
       <CardContent className="p-6">
@@ -58,7 +60,7 @@ export const RecipeCardSection = (): JSX.Element => {
         </div>
 
         {/* Social interaction buttons */}
-        <div className="flex items-center gap-6 mb-4">
+        <div className="flex items-center gap-4 sm:gap-6 mb-4">
           <Button variant="ghost" size="sm" className="flex items-center gap-2 text-gray-600 hover:text-red-500">
             <Heart className="w-5 h-5" />
             <span>42</span>
@@ -70,7 +72,8 @@ export const RecipeCardSection = (): JSX.Element => {
           <Button variant="ghost" size="sm" className="flex items-center gap-2 text-gray-600 hover:text-green-500">
             <Share2 className="w-5 h-5" />
           </Button>
-          <Button variant="ghost" size="sm" className="ml-auto text-gray-600 hover:text-yellow-500">
+          <Button variant="ghost" size="sm"
+           className="ml-auto text-gray-600 hover:text-yellow-500">
             <Bookmark className="w-5 h-5" />
           </Button>
         </div>
@@ -88,7 +91,7 @@ export const RecipeCardSection = (): JSX.Element => {
           </Avatar>
 
           <Input
-            placeholder="Add a comment..."
+             placeholder={language === "ar" ? "أضف تعليقاً..." : "Add a comment..."}
             className="flex-1 border-0 bg-transparent text-gray-700 focus-visible:ring-0 focus-visible:ring-offset-0 px-0"
           />
         </div>

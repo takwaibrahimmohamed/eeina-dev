@@ -23,6 +23,7 @@ import {
   BookOpen
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
 
 export const Explore = (): JSX.Element => {
   const { t, isRTL, language } = useLanguage();
@@ -300,7 +301,7 @@ export const Explore = (): JSX.Element => {
   const ListView = () => (
     <div className="space-y-4">
       {filteredRecipes.map((recipe) => (
-        <Link key={recipe.id} to={`/recipe/${recipe.id}`}>
+        <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="block">
           <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
             <CardContent className="p-0">
               <div className="flex">
@@ -378,8 +379,8 @@ export const Explore = (): JSX.Element => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <TopCreatorsSection />
-      
+      {/* <TopCreatorsSection /> */}
+      <Header/>
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -427,7 +428,7 @@ export const Explore = (): JSX.Element => {
           <div className="flex flex-col gap-6">
             {/* Search */}
             <div className="relative max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Search className={`absolute ${isRTL?"right-3":"left-3"} top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4`} />
               <Input
                 placeholder={t.explore.search_recipes}
                 value={searchQuery}
@@ -440,7 +441,7 @@ export const Explore = (): JSX.Element => {
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Category Filter */}
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t.explore.category}</label>
                 <div className="flex items-center gap-2 flex-wrap">
                   {categories.map((category) => (
                     <Button
@@ -461,7 +462,7 @@ export const Explore = (): JSX.Element => {
 
               {/* Cuisine Filter */}
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Cuisine</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t.explore.cuisine}</label>
                 <div className="flex items-center gap-2 flex-wrap">
                   {cuisines.slice(0, 5).map((cuisine) => (
                     <Button
@@ -482,7 +483,7 @@ export const Explore = (): JSX.Element => {
 
               {/* Difficulty Filter */}
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Difficulty</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t.explore.difficulty}</label>
                 <div className="flex items-center gap-2 flex-wrap">
                   {difficulties.map((difficulty) => (
                     <Button
@@ -513,7 +514,7 @@ export const Explore = (): JSX.Element => {
                   size="sm"
                   onClick={() => setViewMode('grid')}
                   className={viewMode === 'grid' 
-                    ? "bg-white shadow-sm" 
+                     ? "bg-white shadow-sm"  
                     : "hover:bg-white/50"
                   }
                 >
@@ -537,7 +538,15 @@ export const Explore = (): JSX.Element => {
 
         {/* Recipes Grid/List */}
         {filteredRecipes.length > 0 ? (
-          viewMode === 'grid' ? <GridView /> : <ListView />
+          <>
+            <div className="block md:hidden">
+            <GridView />
+          </div>
+
+        <div className="hidden md:block">
+          {viewMode === 'grid' ? <GridView /> : <ListView />}
+        </div>
+          </>
         ) : (
           <div className="text-center py-12">
             <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />

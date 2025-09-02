@@ -32,7 +32,7 @@ export const englishRoutes = [
    },
    {
       path: "/saved",
-      element: <ProtectedRoute><SavedRecipes /></ProtectedRoute>,
+      element:<ProtectedRoute><SavedRecipes /></ProtectedRoute>,
    },
    {
       path: "/planner",

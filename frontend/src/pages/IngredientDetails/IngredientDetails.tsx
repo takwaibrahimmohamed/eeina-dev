@@ -269,7 +269,7 @@ export const IngredientDetails = (): JSX.Element => {
      const ListView = () => (
           <div className="space-y-4">
                {relatedRecipes.map((recipe) => (
-                    <Link key={recipe.id} to={`/recipe/${recipe.id}`}>
+                    <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="block">
                          <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
                               <CardContent className="p-0">
                                    <div className="flex">
@@ -493,7 +493,7 @@ export const IngredientDetails = (): JSX.Element => {
                          <div className="lg:col-span-8">
                               {/* Recipes Header */}
                               <div className="mb-6">
-                                   <div className="flex items-center justify-between mb-4">
+                                   <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 items-center justify-between mb-4">
                                         <div>
                                              <h2 className="text-2xl font-bold text-gray-900">
                                                   {language === "ar"
@@ -563,15 +563,24 @@ export const IngredientDetails = (): JSX.Element => {
                               </div>
 
                               {/* Recipes Grid/List */}
-                              {viewMode === "grid" ? (
-                                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                 <>
+                                   <div className="block md:hidden">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {relatedRecipes.map((recipe) => (
                                              <RecipeCard key={recipe.id} recipe={recipe} />
                                         ))}
                                    </div>
-                              ) : (
-                                   <ListView />
-                              )}
+                                   </div>
+
+                              <div className="hidden md:block">
+                                   {viewMode === 'grid' ?( <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {relatedRecipes.map((recipe) => (
+                                             <RecipeCard key={recipe.id} recipe={recipe} />
+                                        ))}
+                                   </div>) : (<ListView />)}
+                              </div>
+                                   </>
+                           
 
                               {/* Load More Button */}
                               <div className="text-center mt-8">

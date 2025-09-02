@@ -20,6 +20,7 @@ import {
      Send,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
 
 export const RecipeDetails = (): JSX.Element => {
      const { t, isRTL, language } = useLanguage();
@@ -124,7 +125,7 @@ export const RecipeDetails = (): JSX.Element => {
 
      return (
           <div className="bg-gray-50 min-h-screen">
-               <TopCreatorsSection />
+               <Header />
 
                <div className="max-w-7xl mx-auto px-6 py-8">
                     {/* Top Section - Recipe Image and Details */}

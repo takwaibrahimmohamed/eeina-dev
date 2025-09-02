@@ -9,6 +9,7 @@ import { Badge } from "../../components/ui/badge";
 import { Avatar } from "../../components/ui/avatar";
 import { Heart, Clock, Users, ChefHat, Search, Filter, Grid3X3, List, Bookmark } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
 
 export const SavedRecipes = (): JSX.Element => {
   const { t, isRTL, language } = useLanguage();
@@ -205,7 +206,7 @@ export const SavedRecipes = (): JSX.Element => {
   const ListView = () => (
     <div className="space-y-4">
       {filteredRecipes.map((recipe) => (
-        <Link key={recipe.id} to={`/recipe/${recipe.id}`}>
+        <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="block">
           <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
             <CardContent className="p-0">
               <div className="flex">
@@ -279,7 +280,7 @@ export const SavedRecipes = (): JSX.Element => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <TopCreatorsSection />
+      <Header/>
       
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Header */}
@@ -296,7 +297,7 @@ export const SavedRecipes = (): JSX.Element => {
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
             {/* Search */}
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Search className={`absolute ${isRTL?"right-3":"left-3"} top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4`} />
               <Input
                 placeholder={t.saved.search_saved}
                 value={searchQuery}
@@ -362,7 +363,15 @@ export const SavedRecipes = (): JSX.Element => {
 
         {/* Recipes Grid/List */}
         {filteredRecipes.length > 0 ? (
-          viewMode === 'grid' ? <GridView /> : <ListView />
+          <>
+            <div className="block md:hidden">
+            <GridView />
+          </div>
+
+        <div className="hidden md:block">
+          {viewMode === 'grid' ? <GridView /> : <ListView/>}
+        </div>
+          </>
         ) : (
           <div className="text-center py-12">
             <Bookmark className="w-16 h-16 text-gray-300 mx-auto mb-4" />

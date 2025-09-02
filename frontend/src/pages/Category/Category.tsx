@@ -309,7 +309,7 @@ export const Category = (): JSX.Element => {
   const ListView = () => (
     <div className="space-y-4">
       {filteredRecipes.map((recipe) => (
-        <Link key={recipe.id} to={`/recipe/${recipe.id}`}>
+        <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="block">
           <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
             <CardContent className="p-0">
               <div className="flex">
@@ -407,7 +407,7 @@ export const Category = (): JSX.Element => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="absolute bottom-6 left-6 right-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-[#22ae4b] rounded-full flex items-center justify-center">
+              <div className="p-3 w-12 h-12 bg-[#22ae4b] rounded-full flex items-center justify-center">
                 <categoryData.icon className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -428,7 +428,7 @@ export const Category = (): JSX.Element => {
           <div className="flex flex-col gap-6">
             {/* Search */}
             <div className="relative max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Search className={`absolute ${isRTL ?"right-3":"left-3"} top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4`} />
               <Input
                 placeholder={language === 'ar' ? 'البحث في الوصفات...' : 'Search recipes...'}
                 value={searchQuery}
@@ -510,7 +510,17 @@ export const Category = (): JSX.Element => {
 
         {/* Recipes Grid/List */}
         {filteredRecipes.length > 0 ? (
-          viewMode === 'grid' ? <GridView /> : <ListView />
+        
+             <>
+            <div className="block md:hidden">
+            <GridView />
+          </div>
+
+        <div className="hidden md:block">
+          {viewMode === 'grid' ? <GridView /> : <ListView />}
+        </div>
+         
+          </>
         ) : (
           <div className="text-center py-12">
             <BookOpen className="w-16 h-16 text-gray-300 mx-auto mb-4" />

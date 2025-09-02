@@ -9,6 +9,7 @@ import { Badge } from "../../components/ui/badge";
 import { Avatar } from "../../components/ui/avatar";
 import { ArrowLeft, Heart, Clock, Users, ChefHat, Star, Search, Filter, Grid3X3, List, TrendingUp, Siren as Fire, Award, Eye, MessageCircle, Share2, Bookmark, Calendar, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
 
 export const Trending = (): JSX.Element => {
   const { t, isRTL, language } = useLanguage();
@@ -270,7 +271,7 @@ export const Trending = (): JSX.Element => {
   const TrendingListView = () => (
     <div className="space-y-4">
       {filteredRecipes.map((recipe, index) => (
-        <Link key={recipe.id} to={`/recipe/${recipe.id}`}>
+        <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="block">
           <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
             <CardContent className="p-0">
               <div className="flex">
@@ -375,7 +376,7 @@ export const Trending = (): JSX.Element => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <TopCreatorsSection />
+      <Header />
       
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Back Button */}
@@ -394,15 +395,15 @@ export const Trending = (): JSX.Element => {
           <div className="relative z-10 h-full flex items-center justify-center text-center p-8">
             <div>
               <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                  <TrendingUp className="w-8 h-8 text-white" />
+                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center">
+                  <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-4xl font-bold text-white">{language === 'ar' ? 'الوصفات الرائجة' : 'Trending Recipes'}</h1>
-                  <p className="text-white/90 text-lg">{language === 'ar' ? 'الوصفات الأكثر شعبية الآن' : 'The hottest recipes right now'}</p>
+                  <h1 className="text-base sm:text-3xl md:text-4xl font-bold text-white">{language === 'ar' ? 'الوصفات الرائجة' : 'Trending Recipes'}</h1>
+                  <p className="text-white/90 text-sm sm:text-base md:text-lg ">{language === 'ar' ? 'الوصفات الأكثر شعبية الآن' : 'The hottest recipes right now'}</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-6 text-white/80 text-sm">
+              <div className="flex items-center justify-center gap-6 text-white/80 text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
                   <Fire className="w-4 h-4" />
                   <span>{language === 'ar' ? 'محدث كل ساعة' : 'Updated hourly'}</span>
@@ -462,7 +463,7 @@ export const Trending = (): JSX.Element => {
           <div className="flex flex-col gap-6">
             {/* Search */}
             <div className="relative max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Search className={`absolute ${isRTL?"right-3":"left-3"} top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4`} />
               <Input
                 placeholder={language === 'ar' ? 'البحث في الوصفات الرائجة...' : 'Search trending recipes...'}
                 value={searchQuery}
@@ -529,7 +530,7 @@ export const Trending = (): JSX.Element => {
                   size="sm"
                   onClick={() => setViewMode('list')}
                   className={viewMode === 'list' 
-                    ? "bg-white shadow-sm" 
+                   ? "bg-white shadow-sm" 
                     : "hover:bg-white/50"
                   }
                 >
@@ -598,7 +599,13 @@ export const Trending = (): JSX.Element => {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               {language === 'ar' ? 'جميع الوصفات الرائجة' : 'All Trending Recipes'}
             </h2>
-            {viewMode === 'grid' ? <GridView /> : <TrendingListView />}
+          <div className="block md:hidden">
+            <GridView />
+          </div>
+
+        <div className="hidden md:block">
+          {viewMode === 'grid' ? <GridView /> : <TrendingListView />}
+        </div>
           </div>
         ) : (
           <div className="text-center py-12">

@@ -30,6 +30,7 @@ export interface Translation {
           no: string;
             Follow: string;
           Following: string;
+          Crop: string;
      };
 
      // Home page
@@ -229,6 +230,34 @@ export interface Translation {
           import_recipes: string;
           delete_account: string;
           danger_zone: string;
+          Current_Password: string;
+          New_Password: string;
+          Confirm_Password: string;
+          Update_Password: string;
+          Recipe_notifications: string;
+          Marketing_emails: string;
+          Save_Settings: string;
+          TwoFA_Status: string;
+          Enable_TwoFA: string;
+          TwoFA_Description:string;
+          Enable_2FA:string;
+          Public:string;
+          Private:string;
+          public_dusc:string;
+          Private_dusc:string;
+          Save_Changes:string;
+          Data_Privacy: string;
+          Show_Email_Publicly: string;
+          Show_Followers_Count: string;
+          Allow_Direct_Messages:string;
+          Blocked_Users:string;
+          No_Blocked_Users_Message: string;
+          No_Blocked_Users:string;
+          Storage_Usage:string;
+          Photos_Videos: string;
+          Recipes_Data: string;
+          Total_Used: string;
+          Manage_Storage: string;
      };
 
      // Footer
@@ -346,6 +375,7 @@ export const translations: Record<"en" | "ar", Translation> = {
                no: "No",
                  Follow:"Follow",
                Following:"Following",
+               Crop:"Crop"
           },
           home: {
                title: "EEINA Food",
@@ -537,6 +567,35 @@ export const translations: Record<"en" | "ar", Translation> = {
                import_recipes: "Import Recipes",
                delete_account: "Delete Account",
                danger_zone: "Danger Zone",
+               Current_Password: "Current Password",
+               New_Password: "New Password",
+               Confirm_Password: "Confirm New Password",
+               Update_Password: "Update Password",
+               Recipe_notifications:"Recipe notifications",
+               Marketing_emails: "Marketing emails",
+               Save_Settings: " Save Settings",
+               TwoFA_Status: "2FA is currently disabled",
+               Enable_TwoFA: "Enable 2FA to secure your account",
+               TwoFA_Description:"Two-factor authentication adds an extra layer of security to your account.",
+               Enable_2FA:"Enable 2FA",
+               Public:"Public",
+               Private:"Private",
+               public_dusc:"Anyone can see your profile",
+               Private_dusc:"Anyone can see your profile",
+               Save_Changes:"Save Changes",
+               Data_Privacy: "Data & Privacy",
+               Show_Email_Publicly: "Show email publicly",
+               Show_Followers_Count: "Show followers count",
+               Allow_Direct_Messages: "Allow direct messages",
+               Blocked_Users: "Blocked Users",
+               No_Blocked_Users_Message: "You haven't blocked any users yet.",
+               No_Blocked_Users: "No blocked users",
+               Storage_Usage: "Storage Usage",
+               Photos_Videos: "Photos & Videos",
+               Recipes_Data: "Recipes & Data",
+               Total_Used: "Total Used",
+               Manage_Storage:"Manage Storage"
+
           },
           footer: {
                company: "COMPANY",
@@ -648,7 +707,8 @@ export const translations: Record<"en" | "ar", Translation> = {
                yes: "نعم",
                no: "لا",
                Follow:"تابع",
-               Following:"يتابع" 
+               Following:"يتابع" ,
+               Crop:"قص"
           },
           home: {
                title: "إيناء للطعام",
@@ -843,6 +903,36 @@ export const translations: Record<"en" | "ar", Translation> = {
                import_recipes: "استيراد الوصفات",
                delete_account: "حذف الحساب",
                danger_zone: "منطقة الخطر",
+               Current_Password: "كلمة المرور الحالية",
+               New_Password: "كلمة المرور الجديدة",
+               Confirm_Password: "تأكيد كلمة المرور الجديدة",
+               Update_Password: "تحديث كلمة المرور",
+               Recipe_notifications: "إشعارات الوصفات",
+               Marketing_emails: "رسائل تسويقية عبر البريد",
+               Save_Settings: "حفظ الإعدادات",
+               TwoFA_Status: "المصادقة الثنائية غير مفعّلة",
+               Enable_TwoFA: "فعّل المصادقة الثنائية لتعزيز الأمان",
+               TwoFA_Description: "تضيف المصادقة الثنائية طبقة إضافية من الحماية لحسابك.",
+               Enable_2FA: "تفعيل المصادقة الثنائية",
+               Public: "عام",
+               Private: "خاص",
+               public_dusc:" يمكن للجميع مشاهدة ملفك الشخصي",
+               Private_dusc:" يمكن للمتابعين فقط مشاهدة ملفك الشخصي",
+               Save_Changes:"حفظ التغييرات",
+               Data_Privacy: "البيانات والخصوصية",
+               Show_Email_Publicly: "إظهار البريد الإلكتروني للعامة",
+               Show_Followers_Count: "إظهار عدد المتابعين",
+               Allow_Direct_Messages: "السماح بالرسائل المباشرة",
+               Blocked_Users: "المستخدمون المحظورون",
+               No_Blocked_Users_Message: "لم تقم بحظر أي مستخدم بعد.",
+               No_Blocked_Users: "لا يوجد مستخدمون محظورون",
+               Storage_Usage: "استخدام التخزين",
+               Photos_Videos: "الصور والفيديوهات",
+               Recipes_Data: "الوصفات والبيانات",
+               Total_Used: "إجمالي الاستخدام",
+                Manage_Storage: "إدارة التخزين"
+
+
           },
           footer: {
                company: "عن الشركة",

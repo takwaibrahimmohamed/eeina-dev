@@ -39,6 +39,7 @@ import {
      TrendingDown as Decline,
      Minus,
 } from "lucide-react";
+import { Header } from "../../components/Header";
 
 interface Goal {
      id: string;
@@ -837,7 +838,7 @@ export const GoalsManagement = (): JSX.Element => {
 
      return (
           <div className="bg-gray-50 min-h-screen">
-               <TopCreatorsSection />
+               <Header />
 
                <div className="max-w-7xl mx-auto px-6 py-8">
                     {/* Header */}
@@ -953,9 +954,9 @@ export const GoalsManagement = (): JSX.Element => {
 
                                         return (
                                              <Card key={goal.id} className="overflow-hidden">
-                                                  <CardContent className="p-6">
+                                                  <CardContent className="p-4 sm:p-6">
                                                        {/* Goal Header */}
-                                                       <div className="flex items-start justify-between mb-6">
+                                                       <div className="flex flex-col-reverse gap-2 md:flex-row items-start justify-between mb-6">
                                                             <div className="flex items-start gap-4">
                                                                  <div
                                                                       className={`w-12 h-12 rounded-full flex items-center justify-center ${goal.bgColor}`}>
@@ -974,7 +975,7 @@ export const GoalsManagement = (): JSX.Element => {
                                                                                 ? goal.descriptionAr
                                                                                 : goal.description}
                                                                       </p>
-                                                                      <div className="flex items-center gap-4 text-sm">
+                                                                      <div className="flex items-center gap-4 text-sm flex-wrap">
                                                                            <div
                                                                                 className={`flex items-center gap-1 px-2 py-1 rounded ${getTrendColor(
                                                                                      trend
@@ -1320,7 +1321,7 @@ export const GoalsManagement = (): JSX.Element => {
                                                   </Button>
                                                   <Button
                                                        variant="outline"
-                                                       className="w-full justify-start"
+                                                       className="w-full justify-start "
                                                        onClick={() => {
                                                             if (userGoals.length > 0) {
                                                                  setSelectedGoal(userGoals[0]);
@@ -1332,7 +1333,7 @@ export const GoalsManagement = (): JSX.Element => {
                                                             ? "تحديث التقدم"
                                                             : "Update Progress"}
                                                   </Button>
-                                                  <Link to={getLocalizedPath("/planner")}>
+                                                  <Link to={getLocalizedPath("/planner")} className="block">
                                                        <Button
                                                             variant="outline"
                                                             className="w-full justify-start">

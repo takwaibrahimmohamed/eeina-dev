@@ -26,6 +26,7 @@ import {
   Move,
   Check
 } from "lucide-react";
+import { Header } from "../../components/Header";
 
 interface Ingredient {
   id: number;
@@ -371,7 +372,7 @@ export const CreateRecipe = (): JSX.Element => {
   return (
     <>
       <div className="bg-gray-50 min-h-screen">
-        <TopCreatorsSection />
+        <Header />
         
         <div className="max-w-7xl mx-auto px-6 py-8">
           {/* Header */}
@@ -385,7 +386,7 @@ export const CreateRecipe = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="grid grid-cols-12 gap-8">
+          <div className="grid grid-cols-12 gap-4 sm:gap-8">
             {/* Main Form */}
             <div className="col-span-12 lg:col-span-8">
               <Card>
@@ -424,7 +425,7 @@ export const CreateRecipe = (): JSX.Element => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Preparation Time
+                          {t.create_recipe.preparation_time}
                         </label>
                         <Input
                           placeholder="e.g 45 minutes"
@@ -435,7 +436,7 @@ export const CreateRecipe = (): JSX.Element => {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Servings
+                           {t.create_recipe.servings}
                         </label>
                         <Input
                           placeholder="10"
@@ -446,7 +447,7 @@ export const CreateRecipe = (): JSX.Element => {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Video Url
+                           {t.create_recipe.video_url}
                         </label>
                         <Input
                           placeholder="www.youtube.com"
@@ -461,7 +462,7 @@ export const CreateRecipe = (): JSX.Element => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Thumbnail Image
+                           {t.create_recipe.thumbnail_image}
                         </label>
                         <div 
                           className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-[#22ae4b] transition-colors h-48"
@@ -479,7 +480,7 @@ export const CreateRecipe = (): JSX.Element => {
                                   className="bg-white text-gray-900 hover:bg-gray-100"
                                   size="sm"
                                 >
-                                  Crop Image
+                                   {t.create_recipe.crop_image}
                                 </Button>
                               </div>
                             </div>
@@ -488,8 +489,8 @@ export const CreateRecipe = (): JSX.Element => {
                               <div className="w-12 h-12 bg-[#22ae4b] rounded-full flex items-center justify-center mb-3">
                                 <Camera className="w-6 h-6 text-white" />
                               </div>
-                              <span className="text-gray-600 font-medium">Click to upload thumbnail</span>
-                              <span className="text-sm text-gray-500 mt-1">Then crop to perfect size</span>
+                              <span className="text-gray-600 font-medium">{t.create_recipe.click_to_upload}</span>
+                              <span className="text-sm text-gray-500 mt-1">{t.create_recipe.crop_perfect}</span>
                             </div>
                           )}
                         </div>
@@ -497,11 +498,11 @@ export const CreateRecipe = (): JSX.Element => {
                       
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Additional Images
+                          {t.create_recipe.additional_images}
                         </label>
                         <div className="space-y-4">
                           {additionalImages.map((imageItem) => (
-                            <div key={imageItem.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                            <div key={imageItem.id} className="flex items-center gap-4 p-0 sm:p-4 bg-gray-50 rounded-lg">
                               <div 
                                 className="flex-1 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#22ae4b] transition-colors h-32"
                                 onClick={() => handleImageUpload('additional', imageItem.id)}
@@ -518,7 +519,7 @@ export const CreateRecipe = (): JSX.Element => {
                                         className="bg-white text-gray-900 hover:bg-gray-100"
                                         size="sm"
                                       >
-                                        Crop
+                                       {t.common.Crop}
                                       </Button>
                                     </div>
                                   </div>
@@ -527,7 +528,7 @@ export const CreateRecipe = (): JSX.Element => {
                                     <div className="w-8 h-8 bg-[#22ae4b] rounded-full flex items-center justify-center mb-2">
                                       <Camera className="w-4 h-4 text-white" />
                                     </div>
-                                    <span className="text-sm text-gray-600">Click to upload</span>
+                                    <span className="text-sm text-gray-600">{t.create_recipe.click_to_upload}</span>
                                   </div>
                                 )}
                               </div>
@@ -549,7 +550,7 @@ export const CreateRecipe = (): JSX.Element => {
                             className="w-full border-[#22ae4b] text-[#22ae4b] hover:bg-[#22ae4b] hover:text-white h-12"
                           >
                             <Plus className="w-4 h-4 mr-2" />
-                            Add Image
+                             {t.create_recipe.add_image}
                           </Button>
                         </div>
                       </div>
@@ -575,10 +576,10 @@ export const CreateRecipe = (): JSX.Element => {
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">{t.create_recipe.add_ingredients}</h3>
                       <div className="space-y-4">
                         {ingredients.map((ingredient) => (
-                          <div key={ingredient.id} className="grid grid-cols-12 gap-4 items-end p-4 bg-gray-50 rounded-lg">
+                          <div key={ingredient.id} className="grid grid-cols-12 gap-4 items-end p-0 sm:p-4 bg-gray-50 rounded-lg">
                             <div className="col-span-12 md:col-span-3">
                               <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Quantity
+                                 {t.create_recipe.quantity}
                               </label>
                               <div className="relative">
                                 <select
@@ -591,12 +592,12 @@ export const CreateRecipe = (): JSX.Element => {
                                     <option key={option} value={option}>{option}</option>
                                   ))}
                                 </select>
-                                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                                <ChevronDown className={`absolute ${isRTL?" left-3":" right-3"} top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none`} />
                               </div>
                             </div>
                             <div className="col-span-12 md:col-span-3">
                               <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Choose weight
+                                 {t.create_recipe.weight}
                               </label>
                               <div className="relative">
                                 <select
@@ -609,12 +610,12 @@ export const CreateRecipe = (): JSX.Element => {
                                     <option key={option} value={option}>{option}</option>
                                   ))}
                                 </select>
-                                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                                <ChevronDown className={`absolute  ${isRTL?" left-3":" right-3"} top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none`} />
                               </div>
                             </div>
                             <div className="col-span-12 md:col-span-5">
                               <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Ingredient name
+                                {t.create_recipe.ingredient_name}
                               </label>
                               <Input
                                 placeholder="Name"
@@ -644,13 +645,13 @@ export const CreateRecipe = (): JSX.Element => {
                         className="mt-4 border-[#22ae4b] text-[#22ae4b] hover:bg-[#22ae4b] hover:text-white h-12 px-6"
                       >
                         <Plus className="w-4 h-4 mr-2" />
-                        Add ingredients
+                        {t.create_recipe.add_ingredients}
                       </Button>
                     </div>
 
                     {/* Instructions */}
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-4">Instructions</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">{t.create_recipe.instructions}</h3>
                       <div className="space-y-6">
                         {steps.map((step) => (
                           <Card key={step.id} className="border-2 border-gray-200">
@@ -660,7 +661,7 @@ export const CreateRecipe = (): JSX.Element => {
                                   <div className="w-8 h-8 bg-[#22ae4b] rounded-full flex items-center justify-center">
                                     <span className="text-white font-bold">{step.id}</span>
                                   </div>
-                                  <span className="text-lg font-semibold text-gray-900">Step {step.id}</span>
+                                  <span className="text-lg font-semibold text-gray-900">{t.create_recipe.step} {step.id}</span>
                                 </div>
                                 {steps.length > 1 && (
                                   <Button
@@ -676,7 +677,7 @@ export const CreateRecipe = (): JSX.Element => {
                               
                               <div className="space-y-6">
                                 <div>
-                                  <label className="block text-sm font-medium text-gray-700 mb-2">Step Image (Optional)</label>
+                                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.create_recipe.StepImage}</label>
                                   <div 
                                     className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#22ae4b] transition-colors h-40"
                                     onClick={() => handleImageUpload('step', step.id)}
@@ -693,7 +694,8 @@ export const CreateRecipe = (): JSX.Element => {
                                             className="bg-white text-gray-900 hover:bg-gray-100"
                                             size="sm"
                                           >
-                                            Crop Image
+                                            
+                                            {t.create_recipe.crop_image}
                                           </Button>
                                         </div>
                                       </div>
@@ -702,14 +704,14 @@ export const CreateRecipe = (): JSX.Element => {
                                         <div className="w-10 h-10 bg-[#22ae4b] rounded-full flex items-center justify-center mb-2">
                                           <Plus className="w-5 h-5 text-white" />
                                         </div>
-                                        <span className="text-sm text-gray-500">Add Step Image</span>
+                                        <span className="text-sm text-gray-500">{t.create_recipe.Add_Step_Image}</span>
                                       </div>
                                     )}
                                   </div>
                                 </div>
                                 
                                 <div>
-                                  <label className="block text-sm font-medium text-gray-700 mb-2">Instructions</label>
+                                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.create_recipe.instructions}</label>
                                   <textarea
                                     placeholder="Describe the cooking steps in detail..."
                                     value={step.instructions}
@@ -729,7 +731,7 @@ export const CreateRecipe = (): JSX.Element => {
                           className="w-full border-[#22ae4b] text-[#22ae4b] hover:bg-[#22ae4b] hover:text-white h-12"
                         >
                           <Plus className="w-4 h-4 mr-2" />
-                          Add Step
+                          {t.create_recipe.add_step}
                         </Button>
                       </div>
                     </div>
@@ -756,10 +758,10 @@ export const CreateRecipe = (): JSX.Element => {
                       <div className="w-10 h-10 bg-[#22ae4b] rounded-full flex items-center justify-center">
                         <Plus className="w-5 h-5 text-white" />
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900">Import new recipe</h3>
+                      <h3 className="text-lg font-bold text-gray-900">{t.create_recipe.import_new_recipe}</h3>
                     </div>
                     <p className="text-gray-600 text-sm mb-4">
-                      Import a recipe from a URL to automatically fill in the details
+                      {t.create_recipe.recipe_url}
                     </p>
                     <Input
                       placeholder="Enter recipe URL..."
@@ -769,7 +771,7 @@ export const CreateRecipe = (): JSX.Element => {
                       onClick={handleImportRecipe}
                       className="w-full bg-[#22ae4b] hover:bg-[#1c9a40] text-white h-12"
                     >
-                      Import Recipe
+                       {t.create_recipe.ImportRecipe}
                     </Button>
                   </CardContent>
                 </Card>
@@ -777,27 +779,27 @@ export const CreateRecipe = (): JSX.Element => {
                 {/* Recipe Tips */}
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-4">Recipe Tips</h3>
+                    <h3 className="text-lg font-bold text-gray-900 mb-4">{t.create_recipe.recipe_tips}</h3>
                     <div className="space-y-3 text-sm text-gray-600">
                       <div className="flex items-start gap-2">
                         <div className="w-2 h-2 bg-[#22ae4b] rounded-full mt-2 flex-shrink-0" />
-                        <p>Use high-quality images to make your recipe more appealing</p>
+                        <p>{t.create_recipe.tips_1}</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="w-2 h-2 bg-[#22ae4b] rounded-full mt-2 flex-shrink-0" />
-                        <p>Be specific with measurements and cooking times</p>
+                        <p>{t.create_recipe.tips_2}</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="w-2 h-2 bg-[#22ae4b] rounded-full mt-2 flex-shrink-0" />
-                        <p>Include step-by-step photos for complex techniques</p>
+                        <p>{t.create_recipe.tips_3}</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="w-2 h-2 bg-[#22ae4b] rounded-full mt-2 flex-shrink-0" />
-                        <p>Add personal notes and variations to make it unique</p>
+                        <p>{t.create_recipe.tips_4}</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="w-2 h-2 bg-[#22ae4b] rounded-full mt-2 flex-shrink-0" />
-                        <p>Test your recipe multiple times before publishing</p>
+                        <p>{t.create_recipe.tips_5}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -812,10 +814,10 @@ export const CreateRecipe = (): JSX.Element => {
                         AD
                       </div>
                       <div className="text-white text-lg font-semibold mb-2">
-                        Your Brand Here
+                          {t.create_recipe.ad_title}
                       </div>
                       <div className="text-white/80 text-sm">
-                        Reach thousands of food enthusiasts
+                        {t.create_recipe.ad_subtitle}
                       </div>
                     </div>
                   </CardContent>

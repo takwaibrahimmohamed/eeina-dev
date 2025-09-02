@@ -25,6 +25,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
 
 export const EditProfile = (): JSX.Element => {
   const { t, isRTL, language } = useLanguage();
@@ -92,7 +93,7 @@ export const EditProfile = (): JSX.Element => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <TopCreatorsSection />
+      <Header />
       
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Header */}
@@ -114,7 +115,7 @@ export const EditProfile = (): JSX.Element => {
           <p className="text-gray-600">{language === 'ar' ? 'تحديث معلومات ملفك الشخصي وتفضيلاتك' : 'Update your profile information and preferences'}</p>
         </div>
 
-        <div className="grid grid-cols-12 gap-8">
+        <div className="grid grid-cols-12 gap-4 sm:gap-8">
           {/* Main Form */}
           <div className="col-span-12 lg:col-span-8">
             <div className="space-y-8">
@@ -147,7 +148,7 @@ export const EditProfile = (): JSX.Element => {
                   {/* Profile Image */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-3">{language === 'ar' ? 'صورة الملف الشخصي' : 'Profile Picture'}</label>
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-6 flex-col sm:flex-row">
                       <div className="relative">
                         <Avatar className="w-24 h-24">
                           <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
@@ -199,7 +200,7 @@ export const EditProfile = (): JSX.Element => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? 'اسم المستخدم' : 'Username'}</label>
                       <Input
                         value={profileData.username}
                         onChange={(e) => handleInputChange('username', e.target.value)}
@@ -207,7 +208,7 @@ export const EditProfile = (): JSX.Element => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? 'البريد الإلكتروني' : 'Email'}</label>
                       <Input
                         type="email"
                         value={profileData.email}
@@ -216,7 +217,7 @@ export const EditProfile = (): JSX.Element => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? 'رقم الهاتف' : 'Phone'}</label>
                       <Input
                         type="tel"
                         value={profileData.phone}
@@ -225,7 +226,7 @@ export const EditProfile = (): JSX.Element => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? 'الموقع' : 'Location'}</label>
                       <Input
                         value={profileData.location}
                         onChange={(e) => handleInputChange('location', e.target.value)}
@@ -247,7 +248,7 @@ export const EditProfile = (): JSX.Element => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Website</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? 'الموقع الإلكتروني' : 'Website'} </label>
                       <Input
                         type="url"
                         value={profileData.website}
@@ -257,7 +258,7 @@ export const EditProfile = (): JSX.Element => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Birth Date</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? 'تاريخ الميلاد' : 'Birth Date'} </label>
                       <Input
                         type="date"
                         value={profileData.birthDate}
@@ -280,7 +281,7 @@ export const EditProfile = (): JSX.Element => {
                         <Instagram className="w-5 h-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Instagram</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">{language === 'ar' ? 'إنستجرام ' : 'Instagram'}</label>
                         <Input
                           value={socialLinks.instagram}
                           onChange={(e) => handleSocialChange('instagram', e.target.value)}
@@ -295,7 +296,7 @@ export const EditProfile = (): JSX.Element => {
                         <Twitter className="w-5 h-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Twitter</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">{language === 'ar' ? 'تويتر ' : 'Twitter'}</label>
                         <Input
                           value={socialLinks.twitter}
                           onChange={(e) => handleSocialChange('twitter', e.target.value)}
@@ -310,7 +311,7 @@ export const EditProfile = (): JSX.Element => {
                         <Facebook className="w-5 h-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Facebook</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">{language === 'ar' ? ' فيسبوك' : 'Facebook'}</label>
                         <Input
                           value={socialLinks.facebook}
                           onChange={(e) => handleSocialChange('facebook', e.target.value)}
@@ -325,7 +326,7 @@ export const EditProfile = (): JSX.Element => {
                         <Youtube className="w-5 h-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">YouTube</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">{language === 'ar' ? ' يوتيوب' : 'YouTube'}</label>
                         <Input
                           value={socialLinks.youtube}
                           onChange={(e) => handleSocialChange('youtube', e.target.value)}
@@ -341,24 +342,24 @@ export const EditProfile = (): JSX.Element => {
               {/* Preferences */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-xl font-bold text-gray-900 mb-6">Preferences</h2>
+                  <h2 className="text-xl font-bold text-gray-900 mb-6">{language === 'ar' ? ' التفضيلات' : 'Preferences'} </h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? ' النوع' : 'Gender'} </label>
                       <select
                         value={profileData.gender}
                         onChange={(e) => handleInputChange('gender', e.target.value)}
                         className="w-full h-12 px-3 border border-gray-300 rounded-lg focus:border-[#22ae4b] focus:ring-[#22ae4b] bg-white"
                       >
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                        <option value="prefer-not-to-say">Prefer not to say</option>
+                        <option value="male">{language === 'ar' ? ' ذكر' : 'Male'}</option>
+                        <option value="female">{language === 'ar' ? ' أنثى' : 'Female'}</option>
+                        <option value="other">{language === 'ar' ? '  آخر' : 'Other'}</option>
+                        <option value="prefer-not-to-say">{language === 'ar' ? ' أفضل عدم الإفصاح' : 'Prefer not to say'}</option>
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Language</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? ' اللغة' : 'Language'} </label>
                       <select
                         value={profileData.language}
                         onChange={(e) => handleInputChange('language', e.target.value)}
@@ -372,7 +373,7 @@ export const EditProfile = (): JSX.Element => {
                       </select>
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Timezone</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">{language === 'ar' ? ' المنطقة الزمنية' : 'Timezone'} </label>
                       <select
                         value={profileData.timezone}
                         onChange={(e) => handleInputChange('timezone', e.target.value)}
@@ -389,16 +390,16 @@ export const EditProfile = (): JSX.Element => {
               </Card>
 
               {/* Save Button */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 w-full">
                 <Button 
                   onClick={handleSave}
-                  className="bg-[#22ae4b] hover:bg-[#1c9a40] text-white px-8 py-3 h-12"
+                  className="bg-[#22ae4b] hover:bg-[#1c9a40] text-white px-4 sm:px-8 py-3 h-12 w-1/2 sm:w-auto"
                 >
                   <Save className="w-4 h-4 mr-2" />
                   {language === 'ar' ? 'حفظ التغييرات' : 'Save Changes'}
                 </Button>
-                <Link to={getLocalizedPath("/profile")}>
-                  <Button variant="outline" className="px-8 py-3 h-12">
+                <Link to={getLocalizedPath("/profile")} className="w-1/2">
+                  <Button variant="outline" className="px-4 sm:px-8 py-4 h-12 w-full sm:w-auto">
                     <X className="w-4 h-4 mr-2" />
                     {t.common.cancel}
                   </Button>

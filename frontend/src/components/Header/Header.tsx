@@ -30,7 +30,7 @@ export const Header = (): JSX.Element => {
       const navItems = [
             { name: t.nav.home, path: "/" },
             { name: t.nav.explore, path: "/explore" },
-            { name: language === "ar" ? "الرائج" : "Trending", path: "/trending" },
+            { name: language === "ar" ? "المميز" : "Trending", path: "/trending" },
             { name: t.nav.saved, path: "/saved" },
             { name: t.nav.planner, path: "/planner" },
             { name: t.nav.lists, path: "/lists" },
@@ -76,7 +76,8 @@ export const Header = (): JSX.Element => {
                               {/* Child 1.1: Logo */}
                               {/* RTL: Becomes the 3rd item in this section */}
                               <div
-                                    className={`bg-[#22ae4b] text-white font-bold text-lg sm:text-xl px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg ${isRTL ? "ml-4 sm:ml-8 order-3" : "mr-4 sm:mr-8"}`}
+                                    className={`bg-[#22ae4b] text-white font-bold text-lg sm:text-xl px-3 py-1.5 sm:px-4 sm:py-2
+                                           rounded-lg ${isRTL ? 'ml-0 lg:ml-2 lg:mr-2 order-3' : 'mr-0 sm:mr-8'}`}
                               >
                                     EEINA
                               </div>
@@ -85,7 +86,8 @@ export const Header = (): JSX.Element => {
                               {/* RTL: Becomes the 2nd item in this section */}
                               <button
                                     onClick={toggleMobileMenu}
-                                    className={`lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors ${isRTL ? "mr-4 order-2" : "ml-4"}`}
+                                    className={`lg:hidden p-2 rounded-md hover:bg-gray-100
+                                           transition-colors  ${isRTL ? 'mr-2 order-2' : 'ml-2'}`}
                                     aria-label="Toggle mobile menu"
                               >
                                     {isMobileMenuOpen ? (
@@ -123,7 +125,7 @@ export const Header = (): JSX.Element => {
                         </div>
 
                         {/* === SECTION 2: Search Bar (Parent) === */}
-                        <div className="flex-1 max-w-xs sm:max-w-md mx-2 sm:mx-4 lg:mx-8 order-2">
+                        <div className="hidden sm:!flex flex-1 max-w-xs sm:max-w-md mx-2 sm:mx-4 lg:mx-8 order-2">
                               {/* Child: The search bar's inner container */}
                               <div className="bg-gray-100 rounded-xl flex items-center px-3 py-2 sm:px-4 sm:py-3">
                                     {/* Grandchild: Search Icon */}
@@ -172,9 +174,7 @@ export const Header = (): JSX.Element => {
                                           {/* Dropdown Menu */}
                                           {isProfileDropdownOpen && (
                                                 <div
-                                                      className={`absolute mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 ${
-                                                            isRTL ? "right-0" : "left-0"
-                                                      }`}
+                                                      className={`absolute mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 right-0`}
                                                 >
                                                       <Link
                                                             to={getLocalizedPath("/profile")}
