@@ -3,6 +3,7 @@ import { useLanguage } from "../../../../contexts/LanguageContext";
 import { Button } from "../../../../components/ui/button";
 import { Input } from "../../../../components/ui/input";
 import { Separator } from "../../../../components/ui/separator";
+import { Link } from "react-router-dom";
 
 export const AdSection = (): JSX.Element => {
   const { t, isRTL } = useLanguage();
@@ -20,7 +21,7 @@ export const AdSection = (): JSX.Element => {
     { title: t.footer.customer_support },
     { title: t.footer.delivery_details },
     { title: t.footer.terms_conditions },
-    { title: t.footer.privacy_policy },
+    { title: t.footer.privacy_policy ,path:"/privacy-policy"},
   ];
 
   return (
@@ -69,12 +70,12 @@ export const AdSection = (): JSX.Element => {
               <ul className="space-y-3 sm:space-y-4">
                 {helpLinks.map((link, index) => (
                   <li key={index}>
-                    <a
-                      href="#"
+                    <Link
+                      to={link.path}
                       className="text-white text-sm sm:text-base font-medium hover:text-[#22ae4b] transition-colors"
                     >
                       {link.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

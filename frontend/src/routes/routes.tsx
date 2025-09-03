@@ -9,6 +9,7 @@ import { GoalsManagement } from "../pages/GoalsManagement";
 import { Home } from "../pages/Home";
 import { IngredientDetails } from "../pages/IngredientDetails";
 import { MealPlanner } from "../pages/MealPlanner";
+import { Privacy_Policy } from "../pages/Privacy_Policy";
 import { Profile } from "../pages/Profile";
 import { RecipeDetails } from "../pages/RecipeDetails";
 import { SavedRecipes } from "../pages/SavedRecipes";
@@ -89,6 +90,10 @@ export const englishRoutes = [
    {
       path: "/goals",
       element: <ProtectedRoute><GoalsManagement /></ProtectedRoute>,
+   },
+   {
+      path: "/privacy-policy",
+      element: <Privacy_Policy/>,
    },
 ];
 

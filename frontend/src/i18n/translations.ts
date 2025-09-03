@@ -259,7 +259,7 @@ export interface Translation {
           Total_Used: string;
           Manage_Storage: string;
      };
-
+  
      // Footer
      footer: {
           company: string;
@@ -344,6 +344,109 @@ export interface Translation {
           food_allergies: string;
           preferences_summary: string;
      };
+        privacy_policy:{
+          informationCollect: string;
+          informationCollectSubtitle: string;
+          howWeUse: string;
+          informationSecurity: string;
+          yourRights: string;
+          internationalTransfers:string;
+          user_information:string;
+          first_last_name:string;
+          email_address:string;
+          password_hashed:string;
+          date_of_birth:string;
+          phone_number: string;
+          profile_image:string;
+          preferred_language:string;
+          recipeInformation:string;
+          recipeInfo_title: string;
+          recipeInfo_description: string;
+          recipeInfo_ingredients: string;
+          recipeInfo_nutrition: string;
+          recipeInfo_instructions: string;
+          recipeInfo_servings: string;
+          recipeInfo_cookingTime: string;
+          recipeInfo_category: string;
+          recipeInfo_images: string;
+          recipeInfo_video: string;
+          recipeInfo_likes: string;
+          recipeInfo_comments: string;
+          recipeInfo_creator: string;
+          privacyIntro: string;
+         
+          category: string;
+          category_name: string;
+          category_type: string;
+          category_image: string;
+          ingredient: string;
+          ingredient_name: string;
+          ingredient_image: string;
+  
+          list: string;
+          list_name: string;
+          list_ingredients: string;
+          list_user: string;
+
+          comment: string;
+          comment_recipe: string;
+          comment_content: string;
+          comment_user: string;
+          comment_likes: string;
+
+          cuisine: string;
+          cuisine_name: string;
+          cuisine_image: string;
+
+        
+          dietLabel: string;
+          dietLabel_name: string;
+          dietLabel_image: string;
+
+          healthLabel: string;
+          healthLabel_name: string;
+          healthLabel_image: string;
+
+          mealPlan: string;
+          mealPlan_user: string;
+          mealPlan_date: string;
+          mealPlan_types: string;
+
+          How_Use_title: string;
+          purpose_provide: string;
+          purpose_notify: string;
+          purpose_participate: string;
+          purpose_support: string;
+          purpose_analysis: string;
+          purpose_monitor: string;
+          purpose_issues: string;
+          cookies_title: string;
+          cookies_intro: string;
+          cookies_definition: string;
+          browser_instructions: string;
+          Security_title:string;
+          Right_title:string;
+          accessUpdateDelete: string;
+          rectification: string;
+          objection: string;
+          restriction: string;
+          dataPortability: string;
+          withdrawConsent: string;
+          gdprNotice: string;
+          ccpaNotice: string;
+          Transfers_title:string;
+          outsideLocationNotice: string;
+          consentAgreement: string;
+          securityMeasures: string;
+          Changes_Privacy_Policy:string;
+          policyUpdateNotice: string;
+          notificationMethod: string;
+          reviewAdvice: string;
+          contactTitle: string;
+          contactInstruction: string;
+         contactEmail: string;
+        
+     }
 }
 
 export const translations: Record<"en" | "ar", Translation> = {
@@ -679,6 +782,106 @@ export const translations: Record<"en" | "ar", Translation> = {
                food_allergies: "Food Allergies",
                preferences_summary: "Your Preferences Summary",
           },
+          privacy_policy:{
+               informationCollect: "Information We Collect",
+               informationCollectSubtitle:"We collect several different types of information for various purposes to provide and improve our Services to you.",
+               howWeUse: "How We Use Information",
+               informationSecurity: "Information Security",
+               yourRights: "Your Rights",
+               internationalTransfers: "International Transfers",
+               user_information: "User Information",
+               first_last_name: "First and Last Name",
+               email_address: "Email Address",
+               password_hashed: "Password (hashed)",
+               date_of_birth: "Date of Birth",
+               phone_number: "Phone Number",
+               profile_image: "Profile Image",
+               preferred_language: "Preferred Language",
+               recipeInformation:"Recipe Information",
+               recipeInfo_title: "Title (English and Arabic)",
+               recipeInfo_description: "Description (English and Arabic)",
+               recipeInfo_ingredients: "Ingredients (with details, names, and raw text)",
+               recipeInfo_nutrition: "Nutritional information",
+               recipeInfo_instructions: "Instructions (with steps and images)",
+               recipeInfo_servings: "Servings",
+               recipeInfo_cookingTime: "Cooking time",
+               recipeInfo_category: "Category (cuisine, meal type, health labels, diet labels)",
+               recipeInfo_images: "Thumbnail and other images",
+               recipeInfo_video: "Video URL",
+               recipeInfo_likes: "Likes",
+               recipeInfo_comments: "Comments",
+               recipeInfo_creator: "Creator",
+               privacyIntro:'This Privacy Policy describes how Eeina ("we," "us," or "our") collects, uses, and discloses your information when you use our website and services (collectively, the "Services").',
+               category: "Category Information",
+               category_name: "Name (English and Arabic)",
+               category_type: "Type (cuisine, meal type, health labels, diet labels)",
+               category_image: "Image",
+
+               ingredient: "Ingredient Information",
+               ingredient_name: "Name (English and Arabic)",
+               ingredient_image: "Image",
+
+               list: "List Information",
+               list_name: "List name (English and Arabic)",
+               list_ingredients: "List of ingredients",
+               list_user: "User who created the list",
+
+               comment: "Comment Information",
+               comment_recipe: "Recipe the comment belongs to",
+               comment_content: "Content of the comment (English and Arabic)",
+               comment_user: "User who wrote the comment",
+               comment_likes: "Likes",
+
+               cuisine: "Cuisine Information",
+               cuisine_name: "Name (English and Arabic)",
+               cuisine_image: "Image",
+
+               dietLabel: "Diet Label Information",
+               dietLabel_name: "Name (English and Arabic)",
+               dietLabel_image: "Image",
+
+               healthLabel: "Health Label Information",
+               healthLabel_name: "Name (English and Arabic)",
+               healthLabel_image: "Image",
+
+               mealPlan: "Meal Plan Information",
+               mealPlan_user: "User who created the meal plan",
+               mealPlan_date: "Date of the meal plan",
+               mealPlan_types: "Meal types",
+               How_Use_title: "We use the collected data for various purposes:",
+               purpose_provide: "To provide and maintain our Services",
+               purpose_notify: "To notify you about changes to our Services",
+               purpose_participate: "To allow you to participate in interactive features of our Services when you choose to do so",
+               purpose_support: "To provide customer care and support",
+               purpose_analysis: "To provide analysis or valuable information so that we can improve the Services",
+               purpose_monitor: "To monitor the usage of the Services",
+               purpose_issues: "To detect, prevent and address technical issues",
+               cookies_title: " Cookies and Tracking Technologies",
+               cookies_intro: "We use cookies and similar tracking technologies to track the activity on our Services and hold certain information.",
+               cookies_definition: "Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Services.",
+               browser_instructions: "You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Services",
+               Security_title:"The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.",
+               Right_title:"Depending on your location, you may have certain rights regarding your personal information. These rights may include:",
+               accessUpdateDelete: "The right to access, update or to delete the information we have on you.",
+               rectification: "The right of rectification. You have the right to have your information rectified if that information is inaccurate or incomplete.",
+               objection: "The right to object. You have the right to object to our processing of your Personal Data.",
+               restriction: "The right of restriction. You have the right to request that we restrict the processing of your personal information.",
+               dataPortability: "The right to data portability. You have the right to be provided with a copy of the information we have on you in a structured, machine-readable and commonly used format.",
+               withdrawConsent: "The right to withdraw consent. You also have the right to withdraw your consent at any time where we relied on your consent to process your personal information.",
+               gdprNotice: "If you are a resident of the European Economic Area (EEA), you have certain data protection rights under the General Data Protection Regulation (GDPR).",
+               ccpaNotice: "If you are a California resident, you have certain rights under the California Consumer Privacy Act (CCPA).",
+               Transfers_title:"Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.",
+               outsideLocationNotice: "If you are located outside and choose to provide information to us, please note that we transfer the data, including Personal Data, to and process it there.",
+               consentAgreement: "Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.",
+               securityMeasures: "We will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.",
+               Changes_Privacy_Policy:"Changes to This Privacy Policy",
+               policyUpdateNotice: "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.",
+               notificationMethod: "We will let you know via email and/or a prominent notice on our Services, prior to the change becoming effective and update the 'last updated' date at the top of this Privacy Policy.",
+               reviewAdvice: "You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.",
+               contactTitle: "Contact Us",
+               contactInstruction: "If you have any questions about this Privacy Policy, please contact us:",
+              contactEmail: "By email: info@eeina.com",
+          }
      },
      ar: {
           nav: {
@@ -1014,6 +1217,108 @@ export const translations: Record<"en" | "ar", Translation> = {
                food_allergies: "الحساسية الغذائية",
                preferences_summary: "ملخص تفضيلاتك",
           },
+          privacy_policy:{
+               informationCollect: "المعلومات التي نجمعها",
+               informationCollectSubtitle:"نجمع عدة أنواع من المعلومات لأغراض مختلفة بهدف تقديم خدماتنا وتحسينها لك",
+               howWeUse: "كيفية استخدام المعلومات",
+               informationSecurity: "أمان المعلومات",
+               yourRights: "حقوقك",
+               internationalTransfers: "النقل الدولي للمعلومات",
+               user_information: "معلومات المستخدم",
+               first_last_name: "الاسم الأول واسم العائلة",
+               email_address: "البريد الإلكتروني",
+               password_hashed: "كلمة المرور (مشفرة)",
+               date_of_birth: "تاريخ الميلاد",
+               phone_number: "رقم الهاتف",
+               profile_image: "صورة الملف الشخصي",
+               preferred_language: "اللغة المفضلة",
+               recipeInformation:"معلومات الوصفة",
+               recipeInfo_title: "العنوان (بالإنجليزية والعربية)",
+               recipeInfo_description: "الوصف (بالإنجليزية والعربية)",
+               recipeInfo_ingredients: "المكونات (بالتفاصيل، الأسماء، والنص الخام)",
+               recipeInfo_nutrition: "المعلومات الغذائية",
+               recipeInfo_instructions: "طريقة التحضير (بالخطوات والصور)",
+               recipeInfo_servings: "عدد الحصص",
+               recipeInfo_cookingTime: "وقت الطهي",
+               recipeInfo_category: "الفئة (المطبخ، نوع الوجبة، الملصقات الصحية، ملصقات النظام الغذائي)",
+               recipeInfo_images: "الصورة المصغرة وصور أخرى",
+               recipeInfo_video: "رابط الفيديو",
+               recipeInfo_likes: "الإعجابات",
+               recipeInfo_comments: "التعليقات",
+               recipeInfo_creator: "صاحب الوصفة",
+               privacyIntro:`توضح سياسة الخصوصية هذه كيف تقوم إيينا ("نحن") بجمع معلوماتك واستخدامها ومشاركتها عند استخدامك لموقعنا وخدماتنا (ويُشار إليها معًا بـ"الخدمات").`,
+               category: "معلومات الفئة",
+               category_name: "الاسم (بالإنجليزية والعربية)",
+               category_type:"النوع (مطبخ، نوع وجبة، صحي، غذائي)",
+               category_image: "الصورة",
+
+               ingredient: "معلومات المكونات",
+               ingredient_name: "الاسم (بالإنجليزية والعربية)",
+               ingredient_image: "الصورة",
+
+               list: "معلومات القوائم",
+               list_name: "اسم القائمة (بالإنجليزية والعربية)",
+               list_ingredients: "قائمة المكونات",
+               list_user: "المستخدم الذي أنشأ القائمة",
+
+               comment: "معلومات التعليقات",
+               comment_recipe: "الوصفة المرتبطة بالتعليق",
+               comment_content: "محتوى التعليق (بالإنجليزية والعربية)",
+               comment_user: "كاتب التعليق",
+               comment_likes: "الإعجابات",
+
+               cuisine: "معلومات المطبخ",
+               cuisine_name: "الاسم (بالإنجليزية والعربية)",
+               cuisine_image: "الصورة",
+
+               dietLabel: "معلومات  النظام الغذائي",
+               dietLabel_name: "الاسم (بالإنجليزية والعربية)",
+               dietLabel_image: "الصورة",
+
+               healthLabel: "معلومات الصحة",
+               healthLabel_name: "الاسم (بالإنجليزية والعربية)",
+               healthLabel_image: "الصورة",
+
+               mealPlan: "معلومات خطة الوجبات",
+               mealPlan_user: "المستخدم الذي أنشأ خطة الوجبات",
+               mealPlan_date: "تاريخ خطة الوجبات",
+               mealPlan_types: "أنواع الوجبات",
+               How_Use_title: "نستخدم البيانات التي نجمعها لأغراض متعددة:",
+               purpose_provide: "لتقديم خدماتنا وضمان استمراريتها",
+               purpose_notify: "لإعلامك بأي تحديثات أو تغييرات تطرأ على خدماتنا",
+               purpose_participate: "لتمكينك من استخدام الخصائص التفاعلية المتاحة في خدماتنا إذا رغبت بذلك",
+               purpose_support: "لتقديم المساعدة والدعم الفني وخدمة العملاء",
+               purpose_analysis: "لتحليل البيانات وتقديم رؤى تساعدنا على تحسين خدماتنا",
+               purpose_monitor: "لمتابعة كيفية استخدام خدماتنا بشكل مستمر",
+               purpose_issues: "لاكتشاف المشكلات التقنية والعمل على منعها أو معالجتها",
+               cookies_title: "ملفات تعريف الارتباط وتقنيات التتبع",
+               cookies_intro: "نستخدم ملفات تعريف الارتباط وتقنيات مشابهة لمتابعة نشاطك على خدماتنا والاحتفاظ ببعض المعلومات.",
+               cookies_definition: "ملفات تعريف الارتباط هي ملفات صغيرة تحتوي على بيانات محدودة، وقد تتضمن معرفًا فريدًا مجهول الهوية. يتم إرسالها من الموقع الإلكتروني إلى متصفحك وتُخزن على جهازك. كما نستخدم تقنيات أخرى مثل إشارات الويب والعلامات والبرمجيات النصية لجمع المعلومات وتحليلها بهدف تحسين خدماتنا.",
+               browser_instructions: "يمكنك ضبط متصفحك لرفض جميع ملفات تعريف الارتباط أو لإشعارك عند إرسال ملف جديد. لكن في حال رفضها، قد لا تعمل بعض أجزاء خدماتنا بشكل صحيح.",
+               Security_title:  "أمان بياناتك مهم بالنسبة لنا، لكن تذكّر أن أي طريقة نقل عبر الإنترنت أو طريقة تخزين إلكتروني ليست آمنة 100%. بينما نسعى لاستخدام وسائل مقبولة تجارياً لحماية بياناتك الشخصية، لا يمكننا ضمان أمانها بشكل مطلق.",
+               Right_title:":اعتمادًا على موقعك، قد يكون لديك بعض الحقوق المتعلقة بمعلوماتك الشخصية. تشمل هذه الحقوق ما يلي",
+               accessUpdateDelete: "الحق في الوصول، التحديث أو حذف المعلومات: يحق لك الوصول إلى معلوماتك الشخصية وتحديثها أو حذفها.",
+               rectification: "الحق في التصحيح: يحق لك تصحيح معلوماتك إذا كانت غير دقيقة أو غير مكتملة.",
+               objection: "الحق في الاعتراض: يحق لك الاعتراض على معالجة بياناتك الشخصية.",
+               restriction: "الحق في التقييد: يحق لك طلب تقييد معالجة معلوماتك الشخصية.",
+               dataPortability: "الحق في نقل البيانات: يحق لك الحصول على نسخة من بياناتك بصيغة منظمة، قابلة للقراءة آليًا وشائعة الاستخدام.",
+               withdrawConsent: "الحق في سحب الموافقة: يحق لك سحب موافقتك في أي وقت إذا اعتمدنا على موافقتك لمعالجة بياناتك.",
+               gdprNotice:"إذا كنت مقيمًا في المنطقة الاقتصادية الأوروبية (EEA)، فلديك بعض حقوق حماية البيانات بموجب اللائحة العامة لحماية البيانات (GDPR).",
+               ccpaNotice:"إذا كنت مقيمًا في ولاية كاليفورنيا، فلديك بعض الحقوق بموجب قانون خصوصية المستهلك في كاليفورنيا (CCPA).",
+               Transfers_title:"قد يتم نقل معلوماتك، بما في ذلك البيانات الشخصية، والاحتفاظ بها على أجهزة كمبيوتر تقع خارج ولايتك أو مقاطعتك أو بلدك أو أي ولاية حكومية أخرى، حيث قد تختلف قوانين حماية البيانات عن تلك المعمول بها في نطاق اختصاصك",
+
+               outsideLocationNotice: "إذا كنت موجودًا في الخارج واخترت تقديم المعلومات لنا، يرجى ملاحظة أننا نقوم بنقل البيانات، بما في ذلك البيانات الشخصية، ومعالجتها هناك.",
+               consentAgreement: "تمثل موافقتك على سياسة الخصوصية هذه متبوعة بتقديمك لهذه المعلومات موافقتك على هذا النقل.",
+               securityMeasures: "سنتخذ جميع الخطوات اللازمة بشكل معقول لضمان التعامل مع بياناتك بأمان ووفقًا لسياسة الخصوصية هذه، ولن يتم نقل أي من بياناتك الشخصية إلى أي منظمة أو دولة إلا إذا كانت هناك ضوابط كافية بما في ذلك أمان بياناتك والمعلومات الشخصية الأخرى.",
+               Changes_Privacy_Policy:"التغييرات على سياسة الخصوصية",
+               policyUpdateNotice: "قد نقوم بتحديث سياسة الخصوصية الخاصة بنا من وقت لآخر. سنقوم بإبلاغك بأي تغييرات عن طريق نشر سياسة الخصوصية الجديدة على هذه الصفحة.",
+               notificationMethod:'سنقوم بإبلاغك عبر البريد الإلكتروني و/أو من خلال إشعار بارز على خدماتنا، قبل أن يصبح التغيير ساريًا، مع تحديث تاريخ "آخر تعديل" في أعلى هذه السياسة.',
+               reviewAdvice: "ننصحك بمراجعة سياسة الخصوصية هذه بشكل دوري للاطلاع على أي تغييرات. تصبح التغييرات في سياسة الخصوصية سارية عند نشرها على هذه الصفحة.",
+               contactTitle: "اتصل بنا",
+               contactInstruction: "إذا كان لديك أي استفسارات حول سياسة الخصوصية هذه، يرجى الاتصال بنا:",
+               contactEmail: "عبر البريد الإلكتروني: info@eeina.com",
+
+          }
      },
 };
 

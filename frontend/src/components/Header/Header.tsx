@@ -9,7 +9,6 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "../ui/na
 import { useAppSelector } from "../../hooks/hook";
 import { useLogOutMutation } from "../../redux/Features/Auth/authApi";
 import { toast } from "sonner";
-
 export const Header = (): JSX.Element => {
       const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
       const { t, isRTL, language } = useLanguage();
@@ -68,26 +67,30 @@ export const Header = (): JSX.Element => {
       };
 
       return (
-            <header className="w-full py-3 px-4 sm:py-4 sm:px-6 bg-white border-b border-gray-100 sticky top-0 z-50">
+            <header className="w-full py-1 px-4 sm:py-2 sm:px-6 bg-white border-b border-gray-100 sticky top-0 z-50">
                   <div className={`max-w-7xl mx-auto flex items-center justify-between ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
                         {/* === SECTION 1: Logo and Nav (Parent) === */}
                         {/* RTL: Moves the entire block to the right */}
-                        <div className={`flex items-center ${isRTL ? "order-3 flex-row-reverse" : "order-1 flex-row"}`}>
+                        <div className={`flex items-center ${isRTL ? "order-3 " : "order-1 "}`}>
                               {/* Child 1.1: Logo */}
                               {/* RTL: Becomes the 3rd item in this section */}
-                              <div
+                              {/* <div
                                     className={`bg-[#22ae4b] text-white font-bold text-lg sm:text-xl px-3 py-1.5 sm:px-4 sm:py-2
                                            rounded-lg ${isRTL ? 'ml-0 lg:ml-10 lg:mr-2 ' : 'mr-0 sm:mr-8'}`}
                               >
                                     EEINA
+                              </div> */}
+                              <div className={`w-20 h-fit ${isRTL ? 'ml:0 sm:ml-3 md:mr-2 ' : 'mr-0 sm:mr-2'}`}>
+                                    <img src ="/EEINA_BBg-01.png" alt="logo" className="w-100 h-100 object-contain"/>
                               </div>
+                              
 
                               {/* Child 1.2: Mobile Menu Button */}
                               {/* RTL: Becomes the 2nd item in this section */}
                               <button
                                     onClick={toggleMobileMenu}
                                     className={`lg:hidden p-2 rounded-md hover:bg-gray-100
-                                           transition-colors  ${isRTL ? 'mr-2 order-2' : 'ml-2'}`}
+                                           transition-colors  ${isRTL ? 'mr-0 order-2' : 'ml-0'}`}
                                     aria-label="Toggle mobile menu"
                               >
                                     {isMobileMenuOpen ? (
@@ -145,7 +148,7 @@ export const Header = (): JSX.Element => {
                         {/* === SECTION 3: Profile and Language (Parent) === */}
                         {/* RTL: Moves the entire block to the left */}
                         <div
-                              className={`flex items-center gap-2 sm:gap-4 ${isRTL ? "order-1 flex-row-reverse" : "order-3 flex-row"}`}
+                              className={`flex items-center gap-2 sm:gap-4 ${isRTL ? "order-1 " : "order-3 "}`}
                         >
                               {/* Child 3.1: Language Switcher */}
                               {/* RTL: Becomes the 2nd item */}
