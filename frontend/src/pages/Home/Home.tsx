@@ -620,7 +620,9 @@ export const Home = (): JSX.Element => {
                                     }`}
                                     onClick={() => toggleFollow(creator.name)}
                                  >
-                                    {followedCreators.includes(creator.name) ? "Following" : "Follow"}
+                                    {followedCreators.includes(creator.name)
+                                       ? language === "ar" ? "متابع" : "Following"
+                                       : language === "ar" ? "متابعة" : "Follow"}
                                  </Button>
                               </div>
                            ))}

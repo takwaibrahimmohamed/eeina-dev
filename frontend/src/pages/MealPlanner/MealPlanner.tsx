@@ -249,21 +249,40 @@ export const MealPlanner = (): JSX.Element => {
    };
 
    const weekDates = getWeekDates(currentDate);
-   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-   const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-   ];
+   const dayNames =
+      language === "ar"
+         ? ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
+         : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+   const monthNames =
+      language === "ar"
+         ? [
+              "يناير",
+              "فبراير",
+              "مارس",
+              "أبريل",
+              "مايو",
+              "يونيو",
+              "يوليو",
+              "أغسطس",
+              "سبتمبر",
+              "أكتوبر",
+              "نوفمبر",
+              "ديسمبر",
+           ]
+         : [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+           ];
 
    // Calculate daily nutrition
    const calculateDayNutrition = (dateStr: string) => {
@@ -296,7 +315,10 @@ export const MealPlanner = (): JSX.Element => {
    // Get all meal types for the selected day (including custom ones)
    const getMealTypes = (dateKey: string) => {
       const dayMeals = mealPlans[dateKey] || {};
-      const standardMeals = ["breakfast", "lunch", "dinner", "snack"];
+      const standardMeals =
+         language === "ar"
+         ? ["فطور", "غداء", "عشاء", "وجبة خفيفة"]
+         : ["breakfast", "lunch", "dinner", "snack"];
       const customMeals = Object.keys(dayMeals).filter((key) => !standardMeals.includes(key));
       return [...standardMeals, ...customMeals];
    };
@@ -459,7 +481,9 @@ export const MealPlanner = (): JSX.Element => {
 
                {meals.length === 0 ? (
                   <div className="text-center py-4 border-2 border-dashed border-gray-300 rounded-lg">
-                     <p className="text-sm text-gray-400">No meals added</p>
+                     <p className="text-sm text-gray-400">
+                        {language === "ar" ? "لم يتم إضافة وجبات" : "No meals added"}
+                     </p>
                   </div>
                ) : (
                   <div className="space-y-3">
@@ -511,7 +535,9 @@ export const MealPlanner = (): JSX.Element => {
             <Card className="w-full max-w-md bg-white shadow-2xl">
                <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                     <h3 className="text-lg font-bold text-gray-900">Add Custom Meal Time</h3>
+                     <h3 className="text-lg font-bold text-gray-900">
+                        {language === "ar" ? "إضافة وقت وجبة مخصص" : "Add Custom Meal Time"}
+                     </h3>
                      <Button variant="ghost" size="icon" onClick={() => setShowCustomMealModal(false)}>
                         <X className="w-4 h-4" />
                      </Button>
@@ -519,7 +545,9 @@ export const MealPlanner = (): JSX.Element => {
 
                   <div className="space-y-4">
                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Meal Time</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                           {language === "ar" ? "وقت الوجبة" : "Meal Time"}
+                        </label>
                         <Input
                            placeholder="e.g., 11 AM, 3 PM, 9 PM"
                            value={customMealTime}
@@ -529,7 +557,9 @@ export const MealPlanner = (): JSX.Element => {
                      </div>
 
                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Meal Name</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                           {language === "ar" ? "اسم الوجبة" : "Meal Name"}
+                        </label>
                         <Input
                            placeholder="e.g., Snack, Pre-workout, Post-workout"
                            value={customMealName}
@@ -569,8 +599,12 @@ export const MealPlanner = (): JSX.Element => {
                      <Plus className="w-6 h-6 text-gray-400" />
                   </div>
                   <div>
-                     <h4 className="font-semibold text-gray-600">Add Custom Meal</h4>
-                     <p className="text-sm text-gray-400">Add meal time</p>
+                      <h4 className="font-semibold text-gray-600">
+                        {language === "ar" ? "إضافة وجبة مخصصة" : "Add Custom Meal"}
+                      </h4>
+                      <p className="text-sm text-gray-400">
+                        {language === "ar" ? "أضف وقت الوجبة" : "Add meal time"}
+                      </p>
                   </div>
                </div>
             </CardContent>
@@ -668,7 +702,11 @@ export const MealPlanner = (): JSX.Element => {
                      {/* Meal Type Selection (if no meal type selected) */}
                      {!selectedMealType && (
                         <div className="mb-4 sm:mb-6 bg-white">
-                           <p className="text-gray-600 mb-4">Select which meal to add this recipe to:</p>
+                           <p className="text-gray-600 mb-4">
+                              {language === "ar"
+                                 ? "اختر الوجبة التي تريد إضافة هذه الوصفة إليها:"
+                                 : "Select which meal to add this recipe to:"}
+                           </p>
                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-4">
                               {getMealTypes(selectedDateKey).map((mealType) => {
                                  const mealIcons = {
@@ -694,17 +732,17 @@ export const MealPlanner = (): JSX.Element => {
                               })}
                            </div>
 
-                           <Button
-                              variant="outline"
-                              className="w-full border-dashed border-[#22ae4b] text-[#22ae4b] hover:bg-green-50"
-                              onClick={() => {
-                                 setShowAddRecipeModal(false);
-                                 setShowCustomMealModal(true);
-                              }}
-                           >
-                              <Plus className="w-4 h-4 mr-2" />
-                              Add Custom Meal Time
-                           </Button>
+                              <Button
+                                variant="outline"
+                                className="w-full border-dashed border-[#22ae4b] text-[#22ae4b] hover:bg-green-50"
+                                onClick={() => {
+                                  setShowAddRecipeModal(false);
+                                  setShowCustomMealModal(true);
+                                }}
+                              >
+                                <Plus className="w-4 h-4 mr-2" />
+                                {language === "ar" ? "إضافة وقت وجبة مخصص" : "Add Custom Meal Time"}
+                              </Button>
                         </div>
                      )}
 
@@ -781,7 +819,7 @@ export const MealPlanner = (): JSX.Element => {
                         {getCurrentRecipes().length === 0 && (
                            <div className="text-center py-6 sm:py-8 bg-white">
                               <Search className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                              <p className="text-gray-500">No recipes found</p>
+                                <p className="text-gray-500"></p>
                            </div>
                         )}
                      </div>
