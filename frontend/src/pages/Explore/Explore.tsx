@@ -41,28 +41,28 @@ export const Explore = (): JSX.Element => {
   // Featured categories
   const featuredCategories = [
     {
-      name: "Trending Now",
+      name: language === "ar" ? "الأكثر رواجًا" : "Trending Now",
       icon: TrendingUp,
       count: 156,
       color: "bg-red-500",
       image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop"
     },
     {
-      name: "Quick & Easy",
+      name: language === "ar" ? "سريع وسهل" : "Quick & Easy",
       icon: Clock,
       count: 89,
       color: "bg-blue-500",
       image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop"
     },
     {
-      name: "Healthy",
+      name: language === "ar" ? "صحي" : "Healthy",
       icon: Award,
       count: 124,
       color: "bg-green-500",
       image: "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop"
     },
     {
-      name: "World Cuisine",
+      name: language === "ar" ? "مأكولات عالمية" : "World Cuisine",
       icon: Globe,
       count: 203,
       color: "bg-purple-500",

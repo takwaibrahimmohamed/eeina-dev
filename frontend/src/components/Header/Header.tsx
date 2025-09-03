@@ -77,7 +77,7 @@ export const Header = (): JSX.Element => {
                               {/* RTL: Becomes the 3rd item in this section */}
                               <div
                                     className={`bg-[#22ae4b] text-white font-bold text-lg sm:text-xl px-3 py-1.5 sm:px-4 sm:py-2
-                                           rounded-lg ${isRTL ? 'ml-0 lg:ml-2 lg:mr-2 order-3' : 'mr-0 sm:mr-8'}`}
+                                           rounded-lg ${isRTL ? 'ml-0 lg:ml-10 lg:mr-2 ' : 'mr-0 sm:mr-8'}`}
                               >
                                     EEINA
                               </div>
@@ -149,7 +149,7 @@ export const Header = (): JSX.Element => {
                         >
                               {/* Child 3.1: Language Switcher */}
                               {/* RTL: Becomes the 2nd item */}
-                              <div className={`hidden md:block ${isRTL ? "order-2" : ""}`}>
+                              <div className={`hidden md:block ${isRTL ? "" : ""}`}>
                                     <LanguageSwitcher />
                               </div>
                               {/* Child 3.2: Profile Link */}
