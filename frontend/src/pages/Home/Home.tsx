@@ -607,7 +607,7 @@ export const Home = (): JSX.Element => {
                                     <div className="font-semibold text-sm text-gray-900">{creator.name}</div>
                                     <div className="text-xs text-gray-600">{creator.specialty}</div>
                                     <div className="text-xs text-[#22ae4b] font-medium">
-                                       {creator.followers} followers
+                                       {creator.followers} {t.profile.followers}
                                     </div>
                                  </div>
                                  <Button
@@ -620,7 +620,7 @@ export const Home = (): JSX.Element => {
                                     }`}
                                     onClick={() => toggleFollow(creator.name)}
                                  >
-                                    {followedCreators.includes(creator.name) ? "Following" : "Follow"}
+                                    {followedCreators.includes(creator.name) ? `${t.common.Following}` : `${t.common.Follow}`}
                                  </Button>
                               </div>
                            ))}

@@ -69,10 +69,10 @@ export const Header = (): JSX.Element => {
 
       return (
             <header className="w-full py-3 px-4 sm:py-4 sm:px-6 bg-white border-b border-gray-100 sticky top-0 z-50">
-                  <div className="max-w-7xl mx-auto flex items-center justify-between">
+                  <div className={`max-w-7xl mx-auto flex items-center justify-between ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
                         {/* === SECTION 1: Logo and Nav (Parent) === */}
                         {/* RTL: Moves the entire block to the right */}
-                        <div className={`flex items-center ${isRTL ? "order-3" : "order-1"}`}>
+                        <div className={`flex items-center ${isRTL ? "order-3 flex-row-reverse" : "order-1 flex-row"}`}>
                               {/* Child 1.1: Logo */}
                               {/* RTL: Becomes the 3rd item in this section */}
                               <div
@@ -145,7 +145,7 @@ export const Header = (): JSX.Element => {
                         {/* === SECTION 3: Profile and Language (Parent) === */}
                         {/* RTL: Moves the entire block to the left */}
                         <div
-                              className={`flex items-center gap-2 sm:gap-4 ${isRTL ? "order-1" : "order-3"}`}
+                              className={`flex items-center gap-2 sm:gap-4 ${isRTL ? "order-1 flex-row-reverse" : "order-3 flex-row"}`}
                         >
                               {/* Child 3.1: Language Switcher */}
                               {/* RTL: Becomes the 2nd item */}

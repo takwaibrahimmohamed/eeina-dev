@@ -754,7 +754,7 @@ export const translations: Record<"en" | "ar", Translation> = {
                edit_profile: "تعديل الملف ",
                account_settings: "إعدادات الحساب",
                posts: "المنشورات",
-               followers: "المتابعون",
+               followers: "متابع",
                following: "أتابع",
                recipes_created: "الوصفات المنشأة",
                latest_activity: " أحدث الأنشطة ",
